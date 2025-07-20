@@ -18,7 +18,7 @@ public class Usuario {
 
 
     public boolean login(SistemaAutenticacao autenticar){
-        if (autenticar.validarCredencias(this.email, this.senha){
+        if (autenticar.validarCredencias(this.email, this.senha)){
             autenticar.criarSessao(this);
             System.out.println("Login realizado com sucesso!");
             return true;
