@@ -5,46 +5,15 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private String tipo;
+    private boolean ehADM;
 
 
-    public Usuario(int id, String nome, String email, String senha, String tipo) {
+    public Usuario(int id, String nome, String email, String senha, boolean ehADM) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
-        this.tipo = tipo;
-    }
-
-
-    public int getId() {
-        return id;
-    }
-
-
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-
-
-    public String getSenha() {
-        return senha;
-    }
-
-
-
-    public String getTipo() {
-        return tipo;
+        this.ehADM = ehADM;
     }
 
 
@@ -78,7 +47,56 @@ public class Usuario {
 
     }
 
-    public boolean isAdmin(){
-        return tipo.equalsIgnoreCase("admim")
+    public int getId() {
+        return this.id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        if (email.equals("")) {
+            System.err.println("Seu email não pode ser vazio!");
+        }
+        else {
+            this.email = email;
+        }
+    }
+
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        if (senha.equals("")) {
+            System.err.println("Sua senha não pode ser vazia!");
+        }
+        else {
+            this.senha = senha;
+        }
+    }
+
+
+    public boolean getEhADM() {
+        return this.ehADM;
+    }
+
+    public void setEhADM(boolean ehADM) {
+        this.ehADM = ehADM;
     }
 }
