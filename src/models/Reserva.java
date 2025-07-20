@@ -1,5 +1,6 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reserva {
@@ -8,7 +9,7 @@ public class Reserva {
     private Date data;
     private String horaInicio;
     private String horaFim;
-    private String responsavel; // Nome ou identificador de quem fez a reserva
+    private String responsavel; //nome ou identificador de quem fez a reserva
 
     // Construtor
     public Reserva(int id, Espaco espaco, Date data, String horaInicio, String horaFim, String responsavel) {
@@ -67,6 +68,18 @@ public class Reserva {
 
     public void setResponsavel(String responsavel) {
         this.responsavel = responsavel;
+    }
+
+    //método toCSV para exportar uma linha CSV da reserva
+    public String toCSV() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        return id + ";" 
+             + (espaco != null ? espaco.getNome() : "") + ";" 
+             + responsavel + ";" 
+             + sdf.format(data) + ";" 
+             + horaInicio + ";" 
+             + horaFim + ";" 
+             + "Confirmada"; // ou outro status dinâmico, se tiver
     }
 
     // Método para exibir os detalhes da reserva
