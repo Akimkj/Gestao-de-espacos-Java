@@ -5,20 +5,66 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+<<<<<<< HEAD
+    private String tipo;
+
+
+    public Usuario(int id, String nome, String email, String senha, String tipo) {
+=======
     private boolean ehADM;
 
 
     public Usuario(int id, String nome, String email, String senha, boolean ehADM) {
+>>>>>>> bf84e6164e4e0a980804c72ffd73af46523b7ffb
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+<<<<<<< HEAD
+        this.tipo = tipo;
+    }
+
+
+    public int getId() {
+        return id;
+    }
+
+
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+
+
+    public String getSenha() {
+        return senha;
+    }
+
+
+
+    public String getTipo() {
+        return tipo;
+=======
         this.ehADM = ehADM;
+>>>>>>> bf84e6164e4e0a980804c72ffd73af46523b7ffb
     }
 
 
     public boolean login(SistemaAutenticacao autenticar){
+<<<<<<< HEAD
+        if (autenticar.validarCredencias(this.email, this.senha){
+=======
         if (autenticar.validarCredencias(this.email, this.senha)){
+>>>>>>> bf84e6164e4e0a980804c72ffd73af46523b7ffb
             autenticar.criarSessao(this);
             System.out.println("Login realizado com sucesso!");
             return true;
@@ -47,6 +93,10 @@ public class Usuario {
 
     }
 
+<<<<<<< HEAD
+    public boolean isAdmin(){
+        return tipo.equalsIgnoreCase("admim")
+=======
     public int getId() {
         return this.id;
     }
@@ -98,5 +148,6 @@ public class Usuario {
 
     public void setEhADM(boolean ehADM) {
         this.ehADM = ehADM;
+>>>>>>> bf84e6164e4e0a980804c72ffd73af46523b7ffb
     }
 }
