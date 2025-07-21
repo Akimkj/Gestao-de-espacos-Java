@@ -1,11 +1,11 @@
 package persistence;
-import models.Usuario;
 import java.io.*;
-import  java.util.ArrayList;
-import java.util.List;
+import java.util.ArrayList;
+import  java.util.List;
+import models.Usuario;
 
 public class UsuarioDao {
-    private final String ARQUIVO = "usuario.txt";
+    private final String ARQUIVO = "..\\data\\usuarios.txt";
 
 
     //Lista os usuarios do arquivo;
