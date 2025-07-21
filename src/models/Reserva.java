@@ -8,10 +8,10 @@ public class Reserva {
     private Date data;
     private String horaInicio;
     private String horaFim;
-    private String responsavel; // Nome ou identificador de quem fez a reserva
+    private Usuario responsavel;
 
     // Construtor
-    public Reserva(int id, Espaco espaco, Date data, String horaInicio, String horaFim, String responsavel) {
+    public Reserva(int id, Espaco espaco, Date data, String horaInicio, String horaFim, Usuario responsavel) {
         this.id = id;
         this.espaco = espaco;
         this.data = data;
@@ -61,11 +61,11 @@ public class Reserva {
         this.horaFim = horaFim;
     }
 
-    public String getResponsavel() {
+    public Usuario getResponsavel() {
         return responsavel;
     }
 
-    public void setResponsavel(String responsavel) {
+    public void setResponsavel(Usuario responsavel) {
         this.responsavel = responsavel;
     }
 
@@ -76,6 +76,6 @@ public class Reserva {
         System.out.println("Localização: " + espaco.getLocalizacao());
         System.out.println("Data: " + data);
         System.out.println("Horário: " + horaInicio + " até " + horaFim);
-        System.out.println("Responsável: " + responsavel);
+        System.out.println("Responsável: " + responsavel.getNome() + " (" + responsavel.getEmail() + ")");
     }
 }
