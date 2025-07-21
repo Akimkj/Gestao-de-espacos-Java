@@ -18,6 +18,15 @@ public class Quadra extends Espaco{
         this.tipoEsporte = tipoEsporte;
     }
 
+    @Override
+    public String getTipo() {
+        return "QUADRA";
+    }
+
+    @Override
+    public String getAtrib_esp(){
+        return "TIPOESPORTE=" + tipoEsporte;
+    }
 
     //COLOCAR O METODO VERIFICARDISPONIBILIDADE PARA SWING
     @Override

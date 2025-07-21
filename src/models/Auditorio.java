@@ -32,6 +32,20 @@ public class Auditorio extends Espaco{
 		this.temPalco = temPalco;
 	}
 
+    @Override
+    public String getTipo() {
+        return "AUDITORIO";
+    }
 
+    @Override
+    public String getAtrib_esp(){
+       if (isTemPalco()) {
+        return "TEMPALCO=SIM";
+       }
+       else {
+        return "TEMPALCO=NAO";
+       }
+    }
+    
 
 }

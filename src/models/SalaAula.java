@@ -39,4 +39,19 @@ public class SalaAula extends Espaco{
         this.possuiProjetor = haProjetor;
     }
 
+    @Override
+    public String getTipo() {
+        return "SALAAULA";
+    }
+
+    @Override
+    public String getAtrib_esp(){
+       if (getPossuiprojetor()) {
+        return "POSSUIPROJETOR=SIM";
+       }
+       else {
+        return "POSSUIPROJETOR=NAO";
+       }
+    }
+
 }

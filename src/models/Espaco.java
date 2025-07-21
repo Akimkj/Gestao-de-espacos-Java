@@ -65,4 +65,7 @@ public abstract class Espaco implements Agendavel {
         this.capacidade = capacidade;
     }
 
+    public abstract String getAtrib_esp();
+
+    public abstract String getTipo();
 }

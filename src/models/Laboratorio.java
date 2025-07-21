@@ -20,6 +20,16 @@ public class Laboratorio extends Espaco {
         this.tipoequipamentos= tipoequipamentos;
     }
 
+    @Override
+    public String getTipo() {
+        return "LABORATORIO";
+    }
+
+    @Override
+    public String getAtrib_esp(){
+        return "TIPOEQUIPAMENTO=" + getTipoequipamentos();
+    }
+
     //COLOCAR O METODO VERIFICARDISPONIBILIDADE PARA SWING 
     @Override 
     public boolean consultarDisponibilidade(Date data, String horaInicio, String horaFim){
