@@ -17,8 +17,8 @@ public class Usuario {
     }
 
 
-    public boolean login(SistemaAutenticacao autenticar){
-        if (autenticar.validarCredencias(this.email, this.senha)){
+    public boolean login(/*SistemaAutenticacao autenticar*/){
+        /*if (autenticar.validarCredencias(this.email, this.senha)){
             autenticar.criarSessao(this);
             System.out.println("Login realizado com sucesso!");
             return true;
@@ -27,10 +27,13 @@ public class Usuario {
             System.out.println("Credenciais inválidas");
             return false;
         }
+        */
+        return false;
+        
     }
 
-    public void logout(SistemaAutenticacao autenticar){
-        autenticar.encerrarSessao();
+    public void logout(/*SistemaAutenticacao autenticar*/){
+        /*autenticar.encerrarSessao();*/
         System.out.println("Logout realizado");
     }
 

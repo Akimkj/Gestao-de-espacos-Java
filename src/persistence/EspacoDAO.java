@@ -1,12 +1,7 @@
 package persistence;
 import java.io.*;
 import java.util.*;
-import models.Auditorio;
-import models.Espaco;
-import models.Laboratorio;
-import models.Quadra;
-import models.SalaAula; 
-
+import models.*;
 
 
 public class EspacoDAO {
@@ -22,10 +17,10 @@ public class EspacoDAO {
                     continue;
                 } 
                 int id = Integer.parseInt(dados[0]);
-                String tipo = dados[1];
-                String nome = dados[2];
-                String localizacao = dados[3];
-                int capacidade = Integer.parseInt(dados[4]);
+                String nome = dados[1];
+                String localizacao = dados[2];
+                int capacidade = Integer.parseInt(dados[3]);
+                String tipo = dados[4];
                 String atrib_especial = dados[5];
                 
                 Espaco espaco = null;
@@ -73,13 +68,7 @@ public class EspacoDAO {
 
     public void salvar(Espaco espaco) {
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo, true))) {
-            String linha = String.format("%d;%s;%s;%s;%d;%s",
-            espaco.getID(),
-            espaco.getTipo(),
-            espaco.getNome(),
-            espaco.getLocalizacao(),
-            espaco.getCapacidade(),
-            espaco.getAtrib_esp());
+            String linha = espaco.toString();
 
             bw.write(linha);
             bw.newLine();
@@ -90,18 +79,37 @@ public class EspacoDAO {
         }
     }
 
+    public boolean atualizar(Espaco espacoAtualizado) {
+        List<Espaco> listaEspacos = listar();
+        boolean atualizado = false;
+        
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo, false))) {
+            for(Espaco space: listaEspacos) {
+                if (space.getID() == espacoAtualizado.getID()) {
+                    bw.write(espacoAtualizado.toString());
+                    atualizado = true;
+                } 
+                else {
+                    bw.write(space.toString());
+                }
+                bw.newLine();
+            }
+        }
+        catch (IOException e) {
+            //Atualizar para interface gráfica
+            System.out.println("Erro ao atualizar o espaço: " + e.getMessage());
+            return false;
+        }
+
+        return atualizado;
+    }
+    
     public void remover(int idParaRemover) {
         List<Espaco> espacos = listar();
         try (BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo))) {
             for (Espaco space : espacos) {
                 if (space.getID() != idParaRemover) {
-                    String linha = String.format("%d;%s;%s;%s;%d;%s",
-                            space.getID(),
-                            space.getTipo(),
-                            space.getNome(),
-                            space.getLocalizacao(),
-                            space.getCapacidade(),
-                            space.getAtrib_esp());
+                    String linha = space.toString();
 
                     bw.write(linha);
                     bw.newLine();

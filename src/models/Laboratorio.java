@@ -43,4 +43,9 @@ public class Laboratorio extends Espaco {
         super.exibirDetalhes();
         System.out.println("Tipo de equipamento: " + tipoequipamentos);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + getTipo() + getAtrib_esp();
+    }
 }

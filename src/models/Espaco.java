@@ -68,4 +68,9 @@ public abstract class Espaco implements Agendavel {
     public abstract String getAtrib_esp();
 
     public abstract String getTipo();
+    
+    @Override
+    public String toString() {
+        return this.id + ";" + this.nome + ";" + this.localizacao + ";" + this.capacidade;
+    }
 }

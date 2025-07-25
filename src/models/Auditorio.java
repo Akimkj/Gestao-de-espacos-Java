@@ -47,5 +47,9 @@ public class Auditorio extends Espaco{
        }
     }
     
+    @Override
+    public String toString() {
+        return super.toString() + getTipo() + getAtrib_esp();
+    }
 
 }

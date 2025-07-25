@@ -41,4 +41,9 @@ public class Quadra extends Espaco{
         super.exibirDetalhes();
         System.out.println("Tipo de esportes: " + tipoEsporte);
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + getTipo() + getAtrib_esp();
+    }
 }
