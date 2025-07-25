@@ -1,7 +1,12 @@
 package models;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
-//classe que registrar ações importantes que aconteceram dentro do seu sistema.
+/**
+ * classe que registra ações importantes que aconteceram dentro do seu sistema.
+ * o log contém a data e hora em que foi criado, o usuário responsável pela ação e uma descrição da ação.
+ */
+
 public class Log {
     private Date dataHora; //guardar a data e a hora do log
     private String usuario; 
@@ -13,6 +18,7 @@ public class Log {
         this.acao = acao;
     }
 
+    //Getters importantes
     public Date getDataHora() {
         return dataHora;
     }
@@ -25,9 +31,10 @@ public class Log {
         return acao;
     }
 
-    //método que transforma o log em um texto fácil de ler
+    //método que retorna uma representação em texto do log, formatando a data e hora, seguida do usuário e da descrição da ação.
     @Override
     public String toString() {
-        return "[" + dataHora + "] " + usuario + ": " + acao;
+        SimpleDateFormat formatoDataHora  = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return "[" + formatoDataHora.format(dataHora) + "] " + usuario + ": " + acao;
     }
 }
