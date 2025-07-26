@@ -7,7 +7,6 @@ public class Usuario {
     private String senha;
     private boolean ehADM;
 
-
     public Usuario(int id, String nome, String email, String senha, boolean ehADM) {
         this.id = id;
         this.nome = nome;
@@ -16,53 +15,16 @@ public class Usuario {
         this.ehADM = ehADM;
     }
 
-
-    public boolean login(/*SistemaAutenticacao autenticar*/){
-        /*if (autenticar.validarCredencias(this.email, this.senha)){
-            autenticar.criarSessao(this);
-            System.out.println("Login realizado com sucesso!");
-            return true;
-
-        } else{
-            System.out.println("Credenciais inválidas");
-            return false;
-        }
-        */
-        return false;
-        
-    }
-
-    public void logout(/*SistemaAutenticacao autenticar*/){
-        /*autenticar.encerrarSessao();*/
-        System.out.println("Logout realizado");
-    }
-
-    public void alterarSenha(String novaSenha){
-        this.senha = novaSenha;
-        System.out.println("Senha auterada com sucesso");
-    }
-
-    public void alterarPerfil(String novoNome, String novoEmail){
-        this.nome = novoNome;
-        this.email = novoEmail;
-        System.out.println("Perfil atualizado com sucesso");
-
-
-    }
-
     public int getId() {
-        return this.id;
+        return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
 
-
     public String getNome() {
-        return this.nome;
+        return nome;
     }
-
     public void setNome(String nome) {
         this.nome = nome;
     }
@@ -70,36 +32,34 @@ public class Usuario {
     public String getEmail() {
         return email;
     }
-
     public void setEmail(String email) {
-        if (email.equals("")) {
-            System.err.println("Seu email não pode ser vazio!");
-        }
-        else {
-            this.email = email;
-        }
+        this.email = email;
     }
-
 
     public String getSenha() {
         return senha;
     }
-
     public void setSenha(String senha) {
-        if (senha.equals("")) {
-            System.err.println("Sua senha não pode ser vazia!");
-        }
-        else {
-            this.senha = senha;
-        }
+        this.senha = senha;
     }
 
-
     public boolean getEhADM() {
+        return ehADM;
+    }
+    public void setEhADM(boolean ehADM) {
+        this.ehADM = ehADM;
+    }
+
+    public boolean isAdmin() {
         return this.ehADM;
     }
 
-    public void setEhADM(boolean ehADM) {
-        this.ehADM = ehADM;
+    public void alterarSenha(String novaSenha) {
+        this.senha = novaSenha;
+    }
+
+    public void editarPerfil(String novoNome, String novoEmail) {
+        this.nome = novoNome;
+        this.email = novoEmail;
     }
 }
