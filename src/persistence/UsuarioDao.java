@@ -44,7 +44,7 @@ public class UsuarioDao {
         List<Usuario> usuarios = listarTodos();
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
             for (Usuario u : usuarios){
-                if (u.getId() != idPAraRemover) {
+                if (u.getId() == idPAraRemover) {
                     String linha = u.getId() + ";" +u.getNome() + ";" + u.getEmail() + ";" + u.getSenha() + u.getEhADM();
                     bw.write(linha);
                     bw.newLine();
@@ -64,34 +64,5 @@ public class UsuarioDao {
         }
         return null;
     }
-
-    public Usuario buscarPorLogin(String email){
-        for (Usuario u : listarTodos()) {
-            if (u.getEmail().equalsIgnoreCase(email)) {
-                return u;
-            }
-        }
-        return null;
-    }
-    public void atualizar(Usuario usuarioAtualizado) {
-        List<Usuario> usuarios = listarTodos();
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
-            for (Usuario u : usuarios) {
-                if (u.getId() == usuarioAtualizado.getId()) {
-                    u = usuarioAtualizado; // substitui os dados do usuário
-                }
-                String linha = u.getId() + ";" + u.getNome() + ";" + u.getEmail() + ";" + u.getSenha() + ";" + u.getEhADM();
-                bw.write(linha);
-                bw.newLine();
-            }
-        } catch (IOException e) {
-            System.out.println("Erro ao atualizar usuário: " + e.getMessage());
-        }
-    }
-
-
-
-
-
 
 }
