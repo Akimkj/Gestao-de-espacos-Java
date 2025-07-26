@@ -45,8 +45,8 @@ public class ReservaDAO {
                 String nome = dados[6];
                 String email = dados[7];
 
-                Usuario usuario = new Usuario(usuarioId, nome, email);
-                Espaco espaco = new SalaDeAula(espacoId, "Sala " + espacoId, "Desconhecido", 0); // Simulação
+                Usuario usuario = new Usuario(usuarioId, nome, email, email, false);
+                Espaco espaco = new SalaAula(espacoId, "Sala " + espacoId, "Desconhecido", 0, false); // Simulação
 
                 Reserva reserva = new Reserva(id, espaco, data, horaInicio, horaFim, usuario);
                 reservas.add(reserva);
