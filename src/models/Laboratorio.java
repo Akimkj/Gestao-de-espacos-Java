@@ -5,8 +5,8 @@ import java.util.Date;
 public class Laboratorio extends Espaco {
     private String tipoequipamentos;
 
-    public Laboratorio(int id,String nome, String localizacao, int capacidade, String tipoequipamentos){
-        super(id,nome,localizacao,capacidade);
+    public Laboratorio(String nome, String localizacao, int capacidade, String tipoequipamentos){
+        super(0,nome,localizacao,capacidade);
         this.tipoequipamentos = tipoequipamentos;
     }
 
@@ -46,6 +46,6 @@ public class Laboratorio extends Espaco {
 
     @Override
     public String toString() {
-        return super.toString() + getTipo() + getAtrib_esp();
+        return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 }

@@ -5,8 +5,8 @@ import java.util.Date;
 public class SalaAula extends Espaco{
     private boolean possuiProjetor;
 
-    public SalaAula(int id, String nome, String localizacao, int capacidade, boolean possuiProjetor) {
-        super(id, nome, localizacao, capacidade);
+    public SalaAula(String nome, String localizacao, int capacidade, boolean possuiProjetor) {
+        super(0, nome, localizacao, capacidade);
         this.possuiProjetor = possuiProjetor;
     }
 
@@ -57,6 +57,6 @@ public class SalaAula extends Espaco{
 
     @Override
     public String toString() {
-        return super.toString() + getTipo() + getAtrib_esp();
+        return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 }

@@ -5,7 +5,8 @@ import models.*;
 
 
 public class EspacoDAO {
-    private final String caminhoArquivo = "..\\data\\espacos.txt";
+
+    private final String caminhoArquivo = "src\\data\\espacos.txt";
 
     public List<Espaco> listar() {
         List<Espaco> espacos = new ArrayList<>();
@@ -28,24 +29,24 @@ public class EspacoDAO {
                 switch (tipo.toUpperCase()) {
                     case "SALAAULA":
                         if (atrib_especial.equals("possuiProjetor=SIM")) {
-                            espaco = new SalaAula(id, nome, localizacao, capacidade, true);
+                            espaco = new SalaAula(nome, localizacao, capacidade, true);
                         }
                         else {
-                            espaco = new SalaAula(id, nome, localizacao, capacidade, false);
+                            espaco = new SalaAula(nome, localizacao, capacidade, false);
                         }
                         break;
                     case "LABORATORIO":
-                        espaco = new Laboratorio(id, nome, localizacao, capacidade, atrib_especial);
+                        espaco = new Laboratorio(nome, localizacao, capacidade, atrib_especial);
                         break;
                     case "QUADRA":
-                        espaco = new Quadra(id, nome, localizacao, capacidade, atrib_especial);
+                        espaco = new Quadra(nome, localizacao, capacidade, atrib_especial);
                         break;
                     case "AUDITORIO":
                         if (atrib_especial.equals("possuiPalco=SIM")) {
-                            espaco = new Auditorio(id, nome, localizacao, capacidade, true);
+                            espaco = new Auditorio(nome, localizacao, capacidade, true);
                         }
                         else {
-                            espaco = new Auditorio(id, nome, localizacao, capacidade, false);
+                            espaco = new Auditorio(nome, localizacao, capacidade, false);
                         }
                         break;
                     default:
@@ -72,7 +73,7 @@ public class EspacoDAO {
 
             bw.write(linha);
             bw.newLine();
-            System.out.println("Reserva salva com sucesso no arquivo.");
+            
         } 
         catch (IOException e) {
             e.printStackTrace();
@@ -121,4 +122,24 @@ public class EspacoDAO {
             e.printStackTrace();
         }
     }
+
+    public int gerarProximoId() {
+        int maiorId = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(caminhoArquivo))) {
+            String linha;
+            while ((linha = br.readLine()) != null) {
+                String[] partes = linha.split(";");
+                int idAtual = Integer.parseInt(partes[0]);
+                if (idAtual > maiorId) {
+                    maiorId = idAtual;
+                }
+            }
+        } catch (IOException | NumberFormatException e) {
+            System.out.println("Erro ao gerar ID: " + e.getMessage());
+        }
+
+        return maiorId + 1;
+    }
+
 }

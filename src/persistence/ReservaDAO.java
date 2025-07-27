@@ -1,8 +1,8 @@
 package persistence;
 
-import models.*;
 import java.io.*;
 import java.util.*;
+import models.*;
 // GRAVE: Com erros em relação a estrutura de organização do reservas.txt e erros ao criar instancia para usuario e espaco nas linhas 48 e 49, além de ter que informar o caminho completo do arquivo na linha 7. Por favor, corrija seu código para ficar coerente com o restante do projeto.
 public class ReservaDAO {
     private static final String ARQUIVO = "reservas.txt";
@@ -46,7 +46,7 @@ public class ReservaDAO {
                 String email = dados[7];
 
                 Usuario usuario = new Usuario(usuarioId, nome, email, email, false);
-                Espaco espaco = new SalaAula(espacoId, "Sala " + espacoId, "Desconhecido", 0, false); // Simulação
+                Espaco espaco = new SalaAula("Sala " + espacoId, "Desconhecido", 0, false); // Simulação
 
                 Reserva reserva = new Reserva(id, espaco, data, horaInicio, horaFim, usuario);
                 reservas.add(reserva);

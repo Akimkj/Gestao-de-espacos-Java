@@ -1,8 +1,13 @@
 package view;
+import controller.EspacoController;
 import java.awt.*;
 import javax.swing.*;
+import models.*;
+
+
 /*Classe da janela da interface gráfica para o administrador poder cadastrar um espaço.*/
 public class CadastroEspacoView extends JFrame {
+    private final EspacoController espacoController = new EspacoController(); // instancia do controller para salvar os dados do cadastro do espaço.
 
     private final JComboBox<String> tipoCombo; // caixa com os tipos de espaco
     private final JTextField nomeField, localizacaoField, capacidadeField; // caixas de texto para nome, loc e capacidade do espaco, respectivamente
@@ -155,36 +160,53 @@ public class CadastroEspacoView extends JFrame {
             return;
         }
 
+        Espaco novoEspaco = null;
+
         String infoAdicional = "";
 
         switch (tipo) {
             case "SALA DE AULA":
-                if (projetorSim.isSelected()) infoAdicional = "Projetor: Sim";
-                else if (projetorNao.isSelected()) infoAdicional = "Projetor: Não";
+                if (projetorSim.isSelected()) infoAdicional = "Sim";
+                else if (projetorNao.isSelected()) infoAdicional = "Não";
                 else {
                     JOptionPane.showMessageDialog(this, "Informe se possui projetor.", "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
+                boolean possuiProjetor = projetorSim.isSelected();
+
+                novoEspaco = new SalaAula(nome, localizacao, capacidade, possuiProjetor);
+
                 break;
             case "LABORATÓRIO":
-                infoAdicional = "Equipamento: " + equipamentoField.getText();
+                infoAdicional = equipamentoField.getText();
+
+                novoEspaco = new Laboratorio(nome, localizacao, capacidade, infoAdicional);
+
                 break;
             case "AUDITÓRIO":
-                if (palcoSim.isSelected()) infoAdicional = "Palco: Sim";
-                else if (palcoNao.isSelected()) infoAdicional = "Palco: Não";
+                if (palcoSim.isSelected()) infoAdicional = "Sim";
+                else if (palcoNao.isSelected()) infoAdicional = "Não";
                 else {
                     JOptionPane.showMessageDialog(this, "Informe se possui palco.", "Erro", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
+
+                boolean possuiPalco = palcoSim.isSelected();
+                novoEspaco = new Auditorio(nome, localizacao, capacidade, possuiPalco);
                 break;
             case "QUADRA":
-                infoAdicional = "Esporte: " + esporteField.getText();
+                infoAdicional = esporteField.getText();
+
+                novoEspaco = new Quadra(nome, localizacao, capacidade, infoAdicional);
+
                 break;
             default:
                 JOptionPane.showMessageDialog(this, "Selecione um tipo de espaço.", "Erro", JOptionPane.ERROR_MESSAGE);
                 return;
         }
 
+        espacoController.cadastrarEspaco(novoEspaco);
         JOptionPane.showMessageDialog(this,
             "Cadastro realizado:\n" +
             "Tipo: " + tipo + "\nNome: " + nome + "\nLocalização: " + localizacao +

@@ -5,8 +5,8 @@ import java.util.Date;
 public class Quadra extends Espaco{
     private String tipoEsporte;
 
-    public Quadra(int id,String nome, String localizacao, int capacidade,String tipoEsporte){
-        super(id,nome,localizacao,capacidade);
+    public Quadra(String nome, String localizacao, int capacidade,String tipoEsporte){
+        super(0,nome,localizacao,capacidade);
         this.tipoEsporte=tipoEsporte;
     }
     //Getters e Setters importantes
@@ -44,6 +44,6 @@ public class Quadra extends Espaco{
 
     @Override
     public String toString() {
-        return super.toString() + getTipo() + getAtrib_esp();
+        return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 }

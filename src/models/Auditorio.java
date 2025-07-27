@@ -4,8 +4,8 @@ import java.util.Date;
 public class Auditorio extends Espaco{
     private boolean temPalco;
 
-	public Auditorio(int id, String nome, String localizacao, int capacidade, boolean temPalco) {
-        super(id, nome, localizacao, capacidade);
+	public Auditorio(String nome, String localizacao, int capacidade, boolean temPalco) {
+        super(0, nome, localizacao, capacidade);
         this.temPalco = temPalco;
     }
     
@@ -49,7 +49,7 @@ public class Auditorio extends Espaco{
     
     @Override
     public String toString() {
-        return super.toString() + getTipo() + getAtrib_esp();
+        return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 
 }

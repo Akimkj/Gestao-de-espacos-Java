@@ -11,6 +11,8 @@ public class EspacoController {
     }
 
     public void cadastrarEspaco(Espaco space) {
+        int novoId = espacoDaoinstance.gerarProximoId();
+        space.setID(novoId);
         espacoDaoinstance.salvar(space);
     }
 
