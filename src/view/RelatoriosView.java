@@ -17,6 +17,7 @@ public class RelatoriosView extends JFrame {
     private JButton botaoPersistencia; 
     
     private final RelatorioController controller; //controlador responsável por registrar logs
+    private Usuario usuario;
 
     public RelatoriosView(Usuario usuario) {
         this.usuario = usuario;
