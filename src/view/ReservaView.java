@@ -1,11 +1,11 @@
 package view;
 
-import javax.swing.*;
 import java.awt.*;
-import java.text.ParseException; // Importe para lidar com erros de formatação
-import java.text.SimpleDateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat; // Importe para lidar com erros de formatação
 import java.util.Date;
 import java.util.Random;
+import javax.swing.*;
 import javax.swing.text.MaskFormatter; // Importe para criar máscaras
 import models.*; // Seus modelos (Reserva, Usuario, Espaco, SalaAula)
 import persistence.ReservaDAO; // Use o seu ReservaDAO corrigido
@@ -108,7 +108,7 @@ public class ReservaView extends JFrame {
                 // NOTA: Na sua classe ReservaDAO, você recria Usuario e Espaco com base nos dados.
                 // Aqui, criamos instâncias mínimas para a Reserva
                 Usuario responsavel = new Usuario(novoId, nome, email, "", false);
-                Espaco espaco = new SalaAula(novoId, espacoNome, "Desconhecido", 0, false); 
+                Espaco espaco = new SalaAula(espacoNome, "Desconhecido", 0, false); 
 
                 Reserva reserva = new Reserva(novoId, espaco, dataReserva, horaInicio, horaFim, responsavel);
 

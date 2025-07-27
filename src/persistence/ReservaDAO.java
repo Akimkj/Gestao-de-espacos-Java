@@ -6,7 +6,7 @@ import java.nio.file.Paths; // Importe esta classe
 import java.text.SimpleDateFormat;
 import java.util.*;
 import models.*;
-// GRAVE: Com erros em relação a estrutura de organização do reservas.txt e erros ao criar instancia para usuario e espaco nas linhas 48 e 49, além de ter que informar o caminho completo do arquivo na linha 7. Por favor, corrija seu código para ficar coerente com o restante do projeto.
+
 public class ReservaDAO {
     // Definindo como um Path para usar os métodos de java.nio.file
     private static final java.nio.file.Path CAMINHO_ARQUIVO = Paths.get("Gestao-de-espacos-Java/src/data/reservas.txt");
