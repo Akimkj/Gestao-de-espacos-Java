@@ -1,14 +1,11 @@
 package controller;
 
+import java.util.List;
 import models.Usuario;
 import persistence.UsuarioDao;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.util.List;
-
 public class UsuarioController {
-    private UsuarioDao usuarioDao = new UsuarioDao();
+    private final UsuarioDao usuarioDao = new UsuarioDao();
     private Usuario usuarioLogado;
 
     public boolean login(String email, String senha) {

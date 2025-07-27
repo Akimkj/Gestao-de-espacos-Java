@@ -15,7 +15,7 @@ public class RelatoriosView extends JFrame {
     private JButton botaoLog; 
     private JButton botaoPersistencia; 
     
-    private RelatorioController controller; //controlador responsável por registrar logs
+    private final RelatorioController controller; //controlador responsável por registrar logs
 
     public RelatoriosView() {
         controller = new RelatorioController(); //cria o controlador que registra logs
