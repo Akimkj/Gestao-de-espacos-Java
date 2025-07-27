@@ -2,7 +2,7 @@ package view;
 import controller.RelatorioController; 
 import java.io.*; //importa classes para leitura e escrita de arquivos
 import java.awt.*; //importa classes para criar elementos visuais 
-import java.awt.event.*; //importa classes para lidar com ações (
+import java.awt.event.*; //importa classes para lidar com ações 
 import javax.swing.*; //importa as classes da biblioteca swing 
 import java.nio.file.*; //importa classes para manipular arquivos e diretórios
 import java.util.zip.ZipEntry; //permite criar entradas dentro de arquivos zip
@@ -45,7 +45,7 @@ public class RelatoriosView extends JFrame {
     //método que define o tamanho da janela, título e cor de fundo
     private void configurarJanela() {
         setTitle("Relatórios"); //texto que aparece na parte superior da janela
-        setSize(600, 500); //tamanho da janela
+        setSize(600,500); //tamanho da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //fechar só essa janela sem encerrar todo o programa
         setLocationRelativeTo(null); //centraliza a janela no meio da tela
         setLayout(new BorderLayout()); //organização dos elementos na tela
@@ -84,7 +84,7 @@ public class RelatoriosView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.registrarLog("Usuário", "Clicou em Histórico do Log"); //registra o clique no botão log
-                copiarArquivoExistente("log_sistema.txt"); //copia o arquivo de log para outro local
+                copiarArquivoExistente("src/data/log_sistema/log_sistema.txt"); //copia o arquivo de log para outro local
             }
         });
 
