@@ -2,7 +2,10 @@ package persistence;
 import models.Log;
 import java.io.BufferedWriter; 
 import java.io.FileWriter;     
-import java.io.IOException;    
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;    
 import java.util.List;  
 
@@ -12,7 +15,7 @@ import java.util.List;
  */
 
 public class LogDAO {
-    private static final String CAMINHO_ARQUIVO = "log_sistema.txt"; //nome do arquivo onde os logs serão guardados
+    private static final Path CAMINHO_ARQUIVO= Paths.get("src","data", "log_sistema", "log_sistema.txt"); //nome do arquivo onde os logs serão guardados
     private List<Log> logs;  //lista que guardar os logs na memória 
 
     //garantir que so exista uma única instância da classe LogDAO em toda a aplicação 
@@ -31,13 +34,18 @@ public class LogDAO {
         return instanciaUnica; //retorna a instância única
     }
 
-
+    
     //método para escrever o log dentro do arquivo
     private void salvarEmArquivo(Log log) {
-        //abre o arquivo para adicionar novas informações no final, sem apagar o que já estava lá
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(CAMINHO_ARQUIVO, true))){
-            writer.write(log.toString()); //escreve o log como texto (chama o método toString do log)
-            writer.newLine();
+        try{
+            //garante que o pasta exista, criando ela caso precise
+            Files.createDirectories(CAMINHO_ARQUIVO.getParent());
+        
+            //abre o arquivo para adicionar novas informações no final, sem apagar o que já estava lá
+            try (BufferedWriter writer = new BufferedWriter(new FileWriter(CAMINHO_ARQUIVO.toFile(), true))){
+                writer.write(log.toString()); //escreve o log como texto (chama o método toString do log)
+                writer.newLine();
+            }
         } catch (IOException e) {
             //se der erro, mostra a mensagem no terminal
             System.err.println("Erro ao salvar log: " + e.getMessage());
