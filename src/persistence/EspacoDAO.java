@@ -27,7 +27,7 @@ public class EspacoDAO {
                 Espaco espaco = null;
 
                 switch (tipo.toUpperCase()) {
-                    case "SALAAULA":
+                    case "SALA DE AULA":
                         if (atrib_especial.equals("possuiProjetor=SIM")) {
                             espaco = new SalaAula(nome, localizacao, capacidade, true);
                         }

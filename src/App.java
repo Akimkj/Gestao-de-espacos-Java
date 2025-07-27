@@ -4,8 +4,15 @@ import view.*;
 public class App {
     public static void main(String[] args) {
         
-        SwingUtilities.invokeLater(() -> {
+        
+
+        /*SwingUtilities.invokeLater(() -> {
             CadastroEspacoView viewComum = new CadastroEspacoView();
+            viewComum.setVisible(true);
+        });*/
+
+        SwingUtilities.invokeLater(() -> {
+            EspacosDisponiveisView viewComum = new EspacosDisponiveisView();
             viewComum.setVisible(true);
         });
     }
