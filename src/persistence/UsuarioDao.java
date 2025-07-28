@@ -15,13 +15,15 @@ public class UsuarioDao {
             String linha;
             while ((linha = br.readLine()) != null) {
                 String[] partes = linha.split(";");
-                int id = Integer.parseInt(partes[0]);
-                String nome = partes[1];
-                String email = partes[2];
-                String senha = partes[3];
-                boolean edADM = Boolean.parseBoolean(partes[4]);
+                if (partes.length == 5) {
+                    int id = Integer.parseInt(partes[0]);
+                    String nome = partes[1];
+                    String email = partes[2];
+                    String senha = partes[3];
+                    boolean edADM = Boolean.parseBoolean(partes[4]);
 
-                lista.add(new Usuario(id, nome, email, senha, edADM));
+                    lista.add(new Usuario(id, nome, email, senha, edADM));
+                }
             }
         } catch (IOException e) {
             System.out.println("Erro ao ler o arquivo " + e.getMessage());
@@ -63,6 +65,31 @@ public class UsuarioDao {
             }
         }
         return null;
+    }
+
+    public Usuario buscarPorEmail (String email) {
+        for (Usuario u : listarTodos()) {
+            if (u.getEmail() == email) {
+                return u;
+            }
+        }
+        return null;
+    }
+
+    public void atualizar (Usuario usuarioAtualizado) {
+        List<Usuario> usuarios = listarTodos();
+    try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
+        for (Usuario u : usuarios) {
+            if (u.getId() == usuarioAtualizado.getId()) {
+                u = usuarioAtualizado;
+            }
+            String linha = u.getId() + ";" + u.getNome() + ";" + u.getSenha() + ";" + u.getEhADM();
+            bw.write(linha);
+            bw.newLine();
+        }
+    }catch (IOException e) {
+        System.out.println("Erro ao atualizar usuário: " + e.getMessage());
+    }
     }
 
 }

@@ -1,8 +1,9 @@
 package view; 
 import controller.RelatorioController; 
+import models.Usuario;
 import java.io.*; //importa classes para leitura e escrita de arquivos
 import java.awt.*; //importa classes para criar elementos visuais 
-import java.awt.event.*; //importa classes para lidar com ações (
+import java.awt.event.*; //importa classes para lidar com ações 
 import javax.swing.*; //importa as classes da biblioteca swing 
 import java.nio.file.*; //importa classes para manipular arquivos e diretórios
 import java.util.zip.ZipEntry; //permite criar entradas dentro de arquivos zip
@@ -15,10 +16,12 @@ public class RelatoriosView extends JFrame {
     private JButton botaoLog; 
     private JButton botaoPersistencia; 
     
-    private RelatorioController controller; //controlador responsável por registrar logs
+    private final RelatorioController controller; //controlador responsável por registrar logs
+    private Usuario usuario;
 
-    public RelatoriosView() {
-        controller = new RelatorioController(); //cria o controlador que registra logs
+    public RelatoriosView(Usuario usuario) {
+        this.usuario = usuario;
+        this.controller = new RelatorioController(); //cria o controlador que registra logs
         criarComponentes(); //cria os botões e o título
         configurarJanela(); //define tamanho e aparência da janela
         adicionarNaTela();  //adiciona os elementos visuais na janela
@@ -32,20 +35,22 @@ public class RelatoriosView extends JFrame {
         tituloLabel.setHorizontalAlignment(SwingConstants.CENTER); //coloca o título no meio
         tituloLabel.setForeground(Color.BLUE); //define a cor do título
 
-        botaoCsv = new JButton("Relatórios CSV"); //botão para gerar csv
-        botaoLog = new JButton("Histórico do Log"); //botão para salvar o log
-        botaoPersistencia = new JButton("Salvar Banco de Dados (ZIP)"); //botão para salvar zip
-
-        //define cores e aparência dos botões
-        estilizarBotao(botaoCsv, new Color(0, 87, 183)); 
-        estilizarBotao(botaoLog, new Color(106, 13, 173)); 
-        estilizarBotao(botaoPersistencia, new Color(212, 20, 90)); 
+        botaoCsv = new JButton("Relatórios CSV"); //botão para gerar csv 
+        estilizarBotao(botaoCsv, new Color(0, 87, 183)); // aparencia do botao de pegar o relatorio csv
+        
+        if(usuario.isAdmin()){
+            botaoLog = new JButton("Histórico do Log"); //botão para salvar o log se o usario for adm
+            botaoPersistencia = new JButton("Salvar Banco de Dados (ZIP)"); //botão para salvar zip se o usuario for adm
+            estilizarBotao(botaoLog, new Color(106, 13, 173)); //aparencia do botão historico de log
+            estilizarBotao(botaoPersistencia, new Color(212, 20, 90)); //aparencia do botão de banco de dados
+        }
+        
     }
 
     //método que define o tamanho da janela, título e cor de fundo
     private void configurarJanela() {
-        setTitle("Relatórios"); //texto que aparece na parte superior da janela
-        setSize(600, 500); //tamanho da janela
+        setTitle("AMBIENTA - Relatórios"); //texto que aparece na parte superior da janela
+        setSize(600,500); //tamanho da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //fechar só essa janela sem encerrar todo o programa
         setLocationRelativeTo(null); //centraliza a janela no meio da tela
         setLayout(new BorderLayout()); //organização dos elementos na tela
@@ -64,8 +69,11 @@ public class RelatoriosView extends JFrame {
         painelBotoes.setBorder(BorderFactory.createEmptyBorder(20, 50, 20, 50)); //cria um espaço vazio ao redor dos botões
 
         painelBotoes.add(botaoCsv); //adiciona botão que gera csv
-        painelBotoes.add(botaoLog); //adiciona botão que gera log
-        painelBotoes.add(botaoPersistencia); //adiciona botão que gera o zip
+
+        if (usuario.isAdmin()){   
+        painelBotoes.add(botaoLog); //adiciona botão que gera log se o usario for adm
+        painelBotoes.add(botaoPersistencia); //adiciona botão que gera o zip se o usario for adm
+        }
 
         add(painelBotoes, BorderLayout.CENTER); //adiciona os botões ao centro da janela
     }
@@ -80,21 +88,23 @@ public class RelatoriosView extends JFrame {
             }
         });
 
-        botaoLog.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.registrarLog("Usuário", "Clicou em Histórico do Log"); //registra o clique no botão log
-                copiarArquivoExistente("log_sistema.txt"); //copia o arquivo de log para outro local
-            }
-        });
+        if (usuario.isAdmin()){
+            botaoLog.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    controller.registrarLog("Usuário", "Clicou em Histórico do Log"); //registra o clique no botão log se o usario for adm
+                    copiarArquivoExistente("src/data/log_sistema/log_sistema.txt"); //copia o arquivo de log para outro local, apenas o adm pode fazer
+                }
+            });
 
-        botaoPersistencia.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                controller.registrarLog("Usuário", "Clicou em Backup ZIP"); //registra o clique no botão zip
-                salvarZip("banco1.txt", "Backup dos bancos de dados."); //cria um zip com esse conteúdo dentro
-            }
-        });
+            botaoPersistencia.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    controller.registrarLog("Usuário", "Clicou em Backup ZIP"); //registra o clique no botão zip se o usario for adm
+                    salvarZip("banco1.txt", "Backup dos bancos de dados."); //cria um zip com esse conteúdo dentro se o usario for adm
+                }
+            });
+        }
     }
 
     //método que define a aparência dos botões 

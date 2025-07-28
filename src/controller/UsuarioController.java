@@ -1,15 +1,15 @@
 package controller;
 
+import java.util.List;
 import models.Usuario;
 import persistence.UsuarioDao;
-import java.util.List;
 
 public class UsuarioController {
-    private UsuarioDao usuarioDao = new UsuarioDao();
+    private final UsuarioDao usuarioDao = new UsuarioDao();
     private Usuario usuarioLogado;
 
     public boolean login(String email, String senha) {
-        Usuario usuario = usuarioDao.buscarPorLogin(email);
+        Usuario usuario = usuarioDao.buscarPorEmail(email);
         if (usuario != null && usuario.getSenha().equals(senha)) {
             usuarioLogado = usuario;
             System.out.println("Login realizado com sucesso.");
@@ -43,6 +43,9 @@ public class UsuarioController {
             usuarioDao.atualizar(usuarioLogado);
         }
     }
+
+
+
 
     public void editarPerfil(String novoNome, String novoEmail) {
         if (usuarioLogado != null) {
