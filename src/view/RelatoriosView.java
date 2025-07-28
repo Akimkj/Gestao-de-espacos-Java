@@ -49,7 +49,7 @@ public class RelatoriosView extends JFrame {
 
     //método que define o tamanho da janela, título e cor de fundo
     private void configurarJanela() {
-        setTitle("Relatórios"); //texto que aparece na parte superior da janela
+        setTitle("AMBIENTA - Relatórios"); //texto que aparece na parte superior da janela
         setSize(600,500); //tamanho da janela
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE); //fechar só essa janela sem encerrar todo o programa
         setLocationRelativeTo(null); //centraliza a janela no meio da tela
