@@ -5,7 +5,7 @@ import  java.util.List;
 import models.Usuario;
 
 public class UsuarioDao {
-    private final String ARQUIVO = "..\\data\\usuarios.txt";
+    private final String ARQUIVO = "src\\data\\usuarios.txt";
 
 
     //Lista os usuarios do arquivo;
@@ -69,7 +69,7 @@ public class UsuarioDao {
 
     public Usuario buscarPorEmail (String email) {
         for (Usuario u : listarTodos()) {
-            if (u.getEmail() == email) {
+            if (u.getEmail().equals(email)) {
                 return u;
             }
         }

@@ -17,9 +17,21 @@ public class RelatorioController {
     }
     
     //método que cria um novo log com o usúario e ação informados, e registra esse log usando o LogDAO
-    public void registrarLog(String usuario, String acao){
+    public void registrarLog(String usuario, String acao) {
+        // Obtém a data e hora atual no formato desejado
+        String dataHora = java.time.LocalDateTime.now()
+        .format(java.time.format.DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-        Log log = new Log(usuario,acao); //cria o objeto Log com a data/hora atual, usuário e ação
-        logDAOInstance.registrar(log); //registra o log na lista e no arquivo através do DAO
+        // IP fixo simulado (substitua com o real se estiver em app web ou rede)
+        String enderecoIP = "192.168.0.101"; // pode ser substituído por getLocalHost se quiser
+
+        // Cria uma mensagem completa de log
+        String mensagemLog = String.format("[%s] IP: %s | Usuário: %s | Ação: %s", dataHora, enderecoIP, usuario, acao);
+
+        // Cria o objeto Log com a mensagem completa como "ação"
+        Log log = new Log(usuario, mensagemLog);
+
+        // Salva na memória e no arquivo
+        logDAOInstance.registrar(log);
     }
 }

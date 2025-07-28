@@ -1,19 +1,13 @@
 import javax.swing.SwingUtilities;
+import models.Usuario;
 import view.*;
 
 public class App {
     public static void main(String[] args) {
-        
-        
-
-        /*SwingUtilities.invokeLater(() -> {
-            CadastroEspacoView viewComum = new CadastroEspacoView();
-            viewComum.setVisible(true);
-        });*/
-
         SwingUtilities.invokeLater(() -> {
-            EspacosDisponiveisView viewComum = new EspacosDisponiveisView();
-            viewComum.setVisible(true);
+            Usuario chato = new Usuario(0, "akim", "kaka.gmail", "1234", true);
+            CadastroEspacoView CadastroEspacoView = new CadastroEspacoView(chato);
+            CadastroEspacoView.setVisible(true);
         });
     }
 }

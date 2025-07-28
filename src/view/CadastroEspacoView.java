@@ -1,12 +1,15 @@
 package view;
 import controller.EspacoController;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 import models.*;
 
 
 /*Classe da janela da interface gráfica para o administrador poder cadastrar um espaço.*/
 public class CadastroEspacoView extends JFrame {
+    private Usuario usuarioLogado;
     private final EspacoController espacoController = new EspacoController(); // instancia do controller para salvar os dados do cadastro do espaço.
 
     private final JComboBox<String> tipoCombo; // caixa com os tipos de espaco
@@ -15,9 +18,11 @@ public class CadastroEspacoView extends JFrame {
     private JRadioButton projetorSim, projetorNao, palcoSim, palcoNao; // opcao para os tipos sala de aula e auditorio
     private JTextField equipamentoField, esporteField; // opcao para tipos laboratorio e quadra
     private ButtonGroup grupoSimNao; // grupo dos botoes sim ou nao do campo dinamico
+    private JButton botaoVoltar;
 
     //Método construtor onde inicializa a visualização da janela
-    public CadastroEspacoView() {
+    public CadastroEspacoView(Usuario usuarioLogado) {
+        this.usuarioLogado = usuarioLogado;
         setTitle("AMBIENTA - Cadastro de Espaço"); // titulo da janela
         setDefaultCloseOperation(EXIT_ON_CLOSE); // operacao de fechar a janela 
         setSize(750, 450); // tamanho da janela
@@ -82,6 +87,21 @@ public class CadastroEspacoView extends JFrame {
         painelDinamico.setBounds(20, 140, 580, 50);
         painelDinamico.setOpaque(false);
         formPanel.add(painelDinamico);
+
+        // Criação do botão Voltar
+        botaoVoltar = new JButton("Voltar");
+        botaoVoltar.setBackground(new Color(204, 229, 255));
+        botaoVoltar.setFont(new Font("SansSerif", Font.BOLD, 14));
+        botaoVoltar.setForeground(Color.BLUE);
+        botaoVoltar.setBounds(20, 20, 120, 35);
+        botaoVoltar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new TelaMenuAdmin(usuarioLogado).setVisible(true); // volta para o menu de adm 
+                dispose(); // Fecha a tela de login, opcional
+            }
+        });
+        mainPanel.add(botaoVoltar);
 
         // Botão cadastrar
         JButton cadastrarBtn = new JButton("Cadastrar");
@@ -235,10 +255,6 @@ public class CadastroEspacoView extends JFrame {
         radio.setOpaque(false);
         radio.setForeground(Color.WHITE);
         radio.setFont(new Font("SansSerif", Font.PLAIN, 13));
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new CadastroEspacoView().setVisible(true));
     }
 
     // Painel com gradiente
