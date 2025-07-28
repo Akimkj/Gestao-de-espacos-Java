@@ -69,4 +69,14 @@ public class ReservaController {
             System.out.println(r.toCSV());
         }
     }
+
+    public int gerarNovoId() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'gerarNovoId'");
+    }
+
+    public void adicionarReserva(Reserva reserva) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'adicionarReserva'");
+    }
 }
