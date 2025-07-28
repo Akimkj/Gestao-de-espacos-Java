@@ -1,8 +1,6 @@
 package view;
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import javax.swing.*;
 import models.Usuario;
 
 public class TelaMenuUsuario extends JFrame {
@@ -52,7 +50,7 @@ public class TelaMenuUsuario extends JFrame {
 
         // Evento: Relatório CSV
         btnRelatorio.addActionListener(e -> {
-            new RelatoriosView(usuario).setVisible(true);
+            new RelatoriosView(usuarioLogado).setVisible(true);
             dispose();
         });
 

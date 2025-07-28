@@ -33,7 +33,7 @@ public class RelatoriosView extends JFrame {
         tituloLabel = new JLabel("Relatórios"); //cria o texto do título
         tituloLabel.setFont(new Font("Arial", Font.BOLD, 28)); //define a fonte do título
         tituloLabel.setHorizontalAlignment(SwingConstants.CENTER); //coloca o título no meio
-        tituloLabel.setForeground(Color.BLUE); //define a cor do título
+        tituloLabel.setForeground(new Color(0,102,255)); //define a cor do título
 
         botaoCsv = new JButton("Relatórios CSV"); //botão para gerar csv 
         estilizarBotao(botaoCsv, new Color(0, 87, 183)); // aparencia do botao de pegar o relatorio csv
