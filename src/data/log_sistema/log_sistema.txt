@@ -1,3 +1,4 @@
 [28/07/2025 16:52:15] Usuário: [2025-07-28 16:52:15] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Relatórios CSV
 [28/07/2025 16:52:20] Usuário: [2025-07-28 16:52:20] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
 [28/07/2025 16:52:25] Usuário: [2025-07-28 16:52:25] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
+[28/07/2025 17:56:28] Usuário: [2025-07-28 17:56:28] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Backup ZIP

@@ -9,7 +9,7 @@ import models.*;
 
 public class ReservaDAO {
     // Definindo como um Path para usar os métodos de java.nio.file
-    private static final java.nio.file.Path CAMINHO_ARQUIVO = Paths.get("Gestao-de-espacos-Java/src/data/reservas.txt");
+    private static final java.nio.file.Path CAMINHO_ARQUIVO = Paths.get("src/data/reservas/reservas.txt");
     private SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
 
     public ReservaDAO() {
