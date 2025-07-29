@@ -247,8 +247,7 @@ public class CadastroEspacoView extends JFrame {
         protected void paintComponent(Graphics g) {
             super.paintComponent(g);
             Graphics2D g2 = (Graphics2D) g;
-            GradientPaint gp = new GradientPaint(0, 0, new Color(97, 111, 242),
-                                                 getWidth(), getHeight(), new Color(229, 112, 194));
+            GradientPaint gp = new GradientPaint(0, 0, new Color(97, 111, 242), getWidth(), getHeight(), new Color(229, 112, 194));
             g2.setPaint(gp);
             g2.fillRect(0, 0, getWidth(), getHeight());
         }

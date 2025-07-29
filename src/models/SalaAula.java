@@ -41,7 +41,7 @@ public class SalaAula extends Espaco{
 
     @Override
     public String getTipo() {
-        return "SALAAULA";
+        return "SALA DE AULA";
     }
 
     @Override

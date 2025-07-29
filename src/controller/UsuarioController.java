@@ -8,15 +8,15 @@ public class UsuarioController {
     private final UsuarioDao usuarioDao = new UsuarioDao();
     private Usuario usuarioLogado;
 
-    public boolean login(String email, String senha) {
+    public Usuario login(String email, String senha) {
         Usuario usuario = usuarioDao.buscarPorEmail(email);
         if (usuario != null && usuario.getSenha().equals(senha)) {
             usuarioLogado = usuario;
             System.out.println("Login realizado com sucesso.");
-            return true;
+            return usuario;
         } else {
             System.out.println("Credenciais inválidas.");
-            return false;
+            return null;
         }
     }
 
