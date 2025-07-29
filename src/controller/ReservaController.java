@@ -1,16 +1,16 @@
 package controller;
 
-import models.Reserva;
-import models.Espaco;
-import models.Usuario;
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import models.Espaco;
+import models.Reserva;
+import models.Usuario;
 
 public class ReservaController {
     private List<Reserva> reservas;
     private int proximoId;
+    private RelatorioController relatorioController = new RelatorioController();
 
     public ReservaController() {
         this.reservas = new ArrayList<>();
@@ -21,6 +21,7 @@ public class ReservaController {
     public Reserva criarReserva(Espaco espaco, Date data, String horaInicio, String horaFim, Usuario responsavel) {
         Reserva novaReserva = new Reserva(proximoId++, espaco, data, horaInicio, horaFim, responsavel);
         reservas.add(novaReserva);
+        relatorioController.registrarLog(responsavel.getNome(), "criou uma reserva para o espaço " + espaco.getNome() + " em " + data + " das " + horaInicio + " às " + horaFim);
         return novaReserva;
     }
 
@@ -44,6 +45,7 @@ public class ReservaController {
         Reserva reserva = buscarReservaPorId(id);
         if (reserva != null) {
             reservas.remove(reserva);
+            relatorioController.registrarLog(reserva.getResponsavel().getNome(), "removeu a reserva ID " + reserva.getId() + " do espaço " + reserva.getEspaco().getNome());
             return true;
         }
         return false;
@@ -63,7 +65,8 @@ public class ReservaController {
     }
 
     // Exportar todas as reservas como CSV
-    public void exportarCSV() {
+    public void exportarCSV(Usuario usuario) {
+        relatorioController.registrarLog(usuario.getNome(), "exportou as reservas em formato CSV");
         System.out.println("ID;Espaço;Responsável;Data;Início;Fim;Status");
         for (Reserva r : reservas) {
             System.out.println(r.toCSV());

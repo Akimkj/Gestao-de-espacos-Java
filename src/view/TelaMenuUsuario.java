@@ -36,7 +36,7 @@ public class TelaMenuUsuario extends JFrame {
         btnReservar.setForeground(Color.WHITE);
         painel.add(btnReservar);
 
-        JButton btnRelatorio = new JButton("Relatório CSV");
+        JButton btnRelatorio = new JButton("Relatorios Gerais");
         btnRelatorio.setBounds(30, 140, 240, 40);
         btnRelatorio.setBackground(Color.WHITE);
         painel.add(btnRelatorio);
@@ -47,6 +47,9 @@ public class TelaMenuUsuario extends JFrame {
         painel.add(btnSair);
 
         // Evento: Reservar Espaço
+        btnReservar.addActionListener(e ->{
+            new ReservaView(usuarioLogado).setVisible(true);
+        });
 
         // Evento: Relatório CSV
         btnRelatorio.addActionListener(e -> {

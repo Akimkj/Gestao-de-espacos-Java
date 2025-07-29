@@ -7,11 +7,13 @@ import persistence.UsuarioDao;
 public class UsuarioController {
     private final UsuarioDao usuarioDao = new UsuarioDao();
     private Usuario usuarioLogado;
+    private RelatorioController relatorioController = new RelatorioController();
 
     public Usuario login(String email, String senha) {
         Usuario usuario = usuarioDao.buscarPorEmail(email);
         if (usuario != null && usuario.getSenha().equals(senha)) {
             usuarioLogado = usuario;
+            relatorioController.registrarLog(usuario.getNome(), "realizou login com sucesso");
             System.out.println("Login realizado com sucesso.");
             return usuario;
         } else {
@@ -22,6 +24,7 @@ public class UsuarioController {
 
     public void logout() {
         if (usuarioLogado != null) {
+            relatorioController.registrarLog(usuarioLogado.getNome(), "realizou logout");
             System.out.println("Logout realizado: " + usuarioLogado.getNome());
             usuarioLogado = null;
         } else {
@@ -31,28 +34,31 @@ public class UsuarioController {
 
     public void cadastrarUsuario(Usuario novoUsuario) {
         usuarioDao.salvar(novoUsuario);
+        relatorioController.registrarLog(novoUsuario.getNome(), "cadastrou novo usuário");
+    }
+
+    public boolean removerUsuarioPorEmail(String email) {
+        for (Usuario u : usuarioDao.listarTodos()) {
+            if (u.getEmail().equalsIgnoreCase(email)) {
+                usuarioDao.remover(u.getId());
+                return true;
+            }
+        }
+        return false;
     }
 
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
 
-    public void alterarSenha(String novaSenha) {
-        if (usuarioLogado != null) {
-            usuarioLogado.alterarSenha(novaSenha);
-            usuarioDao.atualizar(usuarioLogado);
-        }
-    }
 
 
 
 
-    public void editarPerfil(String novoNome, String novoEmail) {
-        if (usuarioLogado != null) {
-            usuarioLogado.editarPerfil(novoNome, novoEmail);
-            usuarioDao.atualizar(usuarioLogado);
-        }
-    }
+
+
+
+
 
     public List<Usuario> listarUsuarios() {
         return usuarioDao.listarTodos();

@@ -33,6 +33,18 @@ public class UsuarioDao {
     }
 
     public void salvar(Usuario usuario) {
+        List<Usuario> usuarios = listarTodos();
+
+        // Gerar um novo ID com base no maior ID existente
+        int novoId = 1;
+        for (Usuario u : usuarios) {
+            if (u.getId() >= novoId) {
+                novoId = u.getId() + 1;
+            }
+        }
+
+        usuario.setId(novoId);
+
         try(BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO, true))) {
             String linha = usuario.getId() + ";" + usuario.getNome() + ";" +usuario.getEmail() + ";" + usuario.getSenha() + ";" + usuario.getEhADM();
             bw.write(linha);
@@ -42,17 +54,16 @@ public class UsuarioDao {
         }
     }
 
-    public void remover(int idPAraRemover) {
+    public void remover(int idParaRemover) {
         List<Usuario> usuarios = listarTodos();
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
-            for (Usuario u : usuarios){
-                if (u.getId() == idPAraRemover) {
-                    String linha = u.getId() + ";" +u.getNome() + ";" + u.getEmail() + ";" + u.getSenha() + u.getEhADM();
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
+            for (Usuario u : usuarios) {
+                if (u.getId() != idParaRemover) {
+                    String linha = u.getId() + ";" + u.getNome() + ";" + u.getEmail() + ";" + u.getSenha() + ";" + u.getEhADM();
                     bw.write(linha);
                     bw.newLine();
                 }
             }
-
         } catch (IOException e) {
             System.out.println("Erro ao remover usuario: " + e.getMessage());
         }
@@ -76,20 +87,5 @@ public class UsuarioDao {
         return null;
     }
 
-    public void atualizar (Usuario usuarioAtualizado) {
-        List<Usuario> usuarios = listarTodos();
-    try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARQUIVO))) {
-        for (Usuario u : usuarios) {
-            if (u.getId() == usuarioAtualizado.getId()) {
-                u = usuarioAtualizado;
-            }
-            String linha = u.getId() + ";" + u.getNome() + ";" + u.getSenha() + ";" + u.getEhADM();
-            bw.write(linha);
-            bw.newLine();
-        }
-    }catch (IOException e) {
-        System.out.println("Erro ao atualizar usuário: " + e.getMessage());
-    }
-    }
 
 }

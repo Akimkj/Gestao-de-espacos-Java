@@ -1,4 +1,7 @@
-[28/07/2025 16:52:15] Usuário: [2025-07-28 16:52:15] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Relatórios CSV
-[28/07/2025 16:52:20] Usuário: [2025-07-28 16:52:20] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
-[28/07/2025 16:52:25] Usuário: [2025-07-28 16:52:25] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
-[28/07/2025 17:56:28] Usuário: [2025-07-28 17:56:28] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Backup ZIP
+
+[29/07/2025 19:22:45.742] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 19:23:04.016] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 19:24:34.618] Usuario: mika | Acao: cadastrou o espaço: arquiteturaDeComputadores
+[29/07/2025 19:24:34.619] Usuario: mika | Acao: Cadastrou novo espaço: LABORATÓRIO - arquiteturaDeComputadores
+[29/07/2025 19:24:50.520] Usuario: mika | Acao: Clicou em Voltar no Cadastro de Espaço
+[29/07/2025 19:25:41.611] Usuario: akim | Acao: cadastrou novo usuário

@@ -3,6 +3,7 @@ import java.util.*;
 import models.*;
 import persistence.EspacoDAO;
 
+
 /**
  * A classe EspacoController atua como uma camada de controle entre a interface do usuário (ou outras partes do sistema)
  * e a camada de persistência (EspacoDAO) para operações relacionadas a espaços. Ela gerencia a lógica de negócio
@@ -11,6 +12,7 @@ import persistence.EspacoDAO;
 public class EspacoController {
     // Declara uma instância final de EspacoDAO para interagir com o mecanismo de persistência de dados.
     private final EspacoDAO espacoDaoinstance;
+    private RelatorioController relatorioController = new RelatorioController();
 
     /**
      * Construtor da classe EspacoController.
@@ -20,24 +22,17 @@ public class EspacoController {
         this.espacoDaoinstance = new EspacoDAO();
     }
 
-    /**
-     * Cadastra um novo espaço no sistema.
-     * Esta função gera um novo ID único para o espaço, atribui este ID ao objeto Espaco e o salva usando o DAO.
-     */
-    public void cadastrarEspaco(Espaco space) {
-        // Gera o próximo ID disponível para o novo espaço.
+    public void cadastrarEspaco(Espaco space, Usuario usuario) {
         int novoId = espacoDaoinstance.gerarProximoId();
         // Atribui o ID gerado ao objeto Espaco.
         space.setID(novoId);
         // Salva o espaço no sistema de persistência.
         espacoDaoinstance.salvar(space);
+        relatorioController.registrarLog(usuario.getNome(), "cadastrou o espaço: " + space.getNome());
     }
 
-    /**
-     * Remove um espaço do sistema com base no seu ID.
-     * Esta função delega a operação de remoção diretamente ao EspacoDAO.
-     */
-    public void removerEspaco(int id) {
+    public void removerEspaco(int id, Usuario usuario) {
+        relatorioController.registrarLog(usuario.getNome(), "removeu o espaço com ID: " + id);
         espacoDaoinstance.remover(id);
     }
 
@@ -49,13 +44,8 @@ public class EspacoController {
         return espacoDaoinstance.listar();
     }
 
-    /**
-     * Busca um espaço específico pelo seu ID.
-     * Esta função recupera todos os espaços e itera sobre eles para encontrar o espaço com o ID correspondente.
-     * Retorna o objeto Espaco se encontrado, ou null caso contrário.
-     */
-    public Espaco buscarPorId(int id) {
-        // Obtém a lista completa de espaços.
+    public Espaco buscarPorId(int id, Usuario usuario) {
+        relatorioController.registrarLog(usuario.getNome(), "buscou espaço com ID: " + id);
         List<Espaco> espacos = espacoDaoinstance.listar();
         // Verifica se a lista não é nula para evitar NullPointerException.
         if (espacos != null) {
@@ -70,12 +60,14 @@ public class EspacoController {
         return null; // Retorna null se nenhum espaço com o ID for encontrado.
     }
 
-    /**
-     * Edita as informações de um espaço existente.
-     * Esta função delega a operação de atualização ao EspacoDAO.
-     * Retorna true se o espaço foi atualizado com sucesso, false caso contrário.
-     */
-    public boolean editarEspaco(Espaco espacoAtt) {
-        return espacoDaoinstance.atualizar(espacoAtt);
+    public boolean editarEspaco(Espaco espacoAtt,Usuario usuario) {
+        boolean sucesso = espacoDaoinstance.atualizar(espacoAtt);
+        if (sucesso){
+            relatorioController.registrarLog(usuario.getNome(), "editou o espaço com ID: " + espacoAtt.getID());
+        }
+        return sucesso;
+    }
+    public void registrarLog(String usuario, String acao) {
+        relatorioController.registrarLog(usuario, acao);
     }
 }

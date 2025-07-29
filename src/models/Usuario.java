@@ -54,12 +54,6 @@ public class Usuario {
         return this.ehADM;
     }
 
-    public void alterarSenha(String novaSenha) {
-        this.senha = novaSenha;
-    }
 
-    public void editarPerfil(String novoNome, String novoEmail) {
-        this.nome = novoNome;
-        this.email = novoEmail;
-    }
+
 }

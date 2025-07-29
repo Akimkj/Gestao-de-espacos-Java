@@ -1,8 +1,6 @@
 package view;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import models.Usuario;
 
 public class TelaMenuAdmin extends JFrame {
@@ -36,21 +34,23 @@ public class TelaMenuAdmin extends JFrame {
         btnCadastrarEspaco.setBounds(30, 60, 260, 35);
         painel.add(btnCadastrarEspaco);
 
-        JButton btnHistorico = new JButton("Histórico de Log");
-        btnHistorico.setBounds(30, 105, 260, 35);
-        painel.add(btnHistorico);
 
-        JButton btnRelatorio = new JButton("Relatório CSV");
-        btnRelatorio.setBounds(30, 150, 260, 35);
+        JButton btnRelatorio = new JButton("Relatorios Gerais");
+        btnRelatorio.setBounds(30, 100, 260, 35);
         painel.add(btnRelatorio);
 
-        JButton btnPersistencia = new JButton("Backup de Dados");
-        btnPersistencia.setBounds(30, 195, 260, 35);
-        painel.add(btnPersistencia);
 
-        JButton btnExpulsarUsuario = new JButton("Expulsar Usuário");
-        btnExpulsarUsuario.setBounds(30, 240, 260, 35);
-        painel.add(btnExpulsarUsuario);
+        JButton btnExcluirUsuario = new JButton("Expulsar Usuário");
+        btnExcluirUsuario.setBounds(30, 145, 260, 35);
+        painel.add(btnExcluirUsuario);
+
+        JButton btnEspaçosDisponíveis = new JButton("Espaços Disponíveis");
+        btnEspaçosDisponíveis.setBounds(30, 190, 260, 35);
+        painel.add(btnEspaçosDisponíveis);
+
+        JButton btnRemoveEspacos = new JButton("Remove Espacos");
+        btnRemoveEspacos.setBounds(30, 190, 260, 35);
+        painel.add(btnRemoveEspacos);
 
         JButton btnSair = new JButton("Sair");
         btnSair.setBounds(30, 285, 260, 30);
@@ -71,6 +71,21 @@ public class TelaMenuAdmin extends JFrame {
             new LoginView().setVisible(true);
             dispose();
         });
+
+        btnExcluirUsuario.addActionListener(e ->{
+            new ExcluirUsuario(usuarioLogado).setVisible(true);
+            dispose();
+        });
+        btnCadastrarEspaco.addActionListener(e ->{
+            new CadastroEspacoView(usuarioLogado).setVisible(true);
+            dispose();
+        });
+
+        btnEspaçosDisponíveis.addActionListener(e ->{
+            new EspacosDisponiveisView().setVisible(true);
+        });
+
+
     }
 
     // Painel com gradiente
