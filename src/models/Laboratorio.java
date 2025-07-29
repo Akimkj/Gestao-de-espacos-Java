@@ -1,51 +1,51 @@
 package models;
-import java.util.Date;
 
-// A classe Laboratorio representa um espaço do tipo laboratório que pode ser reservado.
-public class Laboratorio extends Espaco {
-    private String tipoequipamentos;
+public class Laboratorio extends Espaco { // Declaração da classe Laboratorio que herda de Espaco
+    private String tipoequipamentos; // Atributo privado para armazenar o tipo de equipamentos do laboratório
 
+    // Construtor da classe Laboratorio
     public Laboratorio(String nome, String localizacao, int capacidade, String tipoequipamentos){
+        // Chama o construtor da superclasse (Espaco)
         super(0,nome,localizacao,capacidade);
-        this.tipoequipamentos = tipoequipamentos;
+        this.tipoequipamentos = tipoequipamentos; // Inicializa o atributo tipoequipamentos
     }
 
-    //Getters e Setters importantes
+    // Getters e Setters importantes
+
+    
     public String getTipoequipamentos(){
         return tipoequipamentos;
     }
 
-
+    
     public void setTipoequipamentos(String tipoequipamentos){
-        this.tipoequipamentos= tipoequipamentos;
+        this.tipoequipamentos = tipoequipamentos;
     }
 
+    // Sobrescreve o método getTipo() da superclasse Espaco
     @Override
     public String getTipo() {
-        return "LABORATORIO";
+        return "LABORATORIO"; // Retorna o tipo específico "LABORATORIO"
     }
 
+    // Sobrescreve o método getAtrib_esp() da superclasse Espaco
     @Override
     public String getAtrib_esp(){
+        // Retorna uma string formatada com o tipo de equipamento
         return "TIPOEQUIPAMENTO=" + getTipoequipamentos();
     }
 
-    //COLOCAR O METODO VERIFICARDISPONIBILIDADE PARA SWING 
+    // Sobrescreve o método exibirDetalhes() da superclasse Espaco
     @Override 
-    public boolean consultarDisponibilidade(Date data, String horaInicio, String horaFim){
-        System.out.println("Verificando disponibilidade do laboratório " + super.getNome() + " no dia " + data);
-        return true;
+    public String exibirDetalhes(){
+        // Chama o método exibirDetalhes() da superclasse e concatena o tipo
+        return super.exibirDetalhes() + getTipo();
     }
 
-
-    @Override 
-    public void exibirDetalhes(){
-        super.exibirDetalhes();
-        System.out.println("Tipo de equipamento: " + tipoequipamentos);
-    }
-
+    // Sobrescreve o método toString() para fornecer uma representação em string do objeto Laboratorio
     @Override
     public String toString() {
+        // Chama o método toString() da superclasse e concatena o tipo e os atributos específicos
         return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 }

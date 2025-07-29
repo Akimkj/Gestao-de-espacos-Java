@@ -1,16 +1,18 @@
 package models;
-import java.util.Date;
 
-// Classe responsável pelo molde em comum dos espaços gerais do ambiente acadêmico.
+/**
+ * Classe abstrata que representa um espaço genérico que pode ser agendado.
+ * Implementa a interface Agendavel, garantindo que todos os espaços possam ser agendados.
+ */
 public abstract class Espaco implements Agendavel {
-    private int id; 
-    private String nome;
-    private String localizacao;
-    private int capacidade;
+    private int id;                 // Identificador único do espaço
+    private String nome;            // Nome do espaço
+    private String localizacao;     // Localização física do espaço
+    private int capacidade;         // Capacidade máxima de pessoas do espaço
 
-    // Discutir sobre um atributo booleano para a disponibilidade do espaço.
+    
 
-    //Método construtor da super classe
+    //Método construtor da super classe Espaco
     public Espaco(int id, String nome, String localizacao, int capacidade) {
         this.id = id;
         this.nome = nome;
@@ -18,18 +20,12 @@ public abstract class Espaco implements Agendavel {
         this.capacidade = capacidade;
     }
     
-    //Metódos implementados pela interface Agendavel
+    
 
-    //Metodo abstrato para verificar a disponibilidade para reserva no banco de dados
+    
     @Override
-    public abstract boolean consultarDisponibilidade(Date data, String horaInicio, String horaFim);
-
-    //Metodo para exibir informações do espaço MUDAR PARA ADERIR À INTERFACE GRAFICA !!!!!!!
-    @Override
-    public void exibirDetalhes() {
-        System.out.println("Espaço: " + nome);
-        System.out.println("Localização: " + localizacao);
-        System.out.println("Capacidade: " + capacidade);
+    public String exibirDetalhes() {
+        return this.id + " - " + this.nome;
     }
 
     //Getters e Setters importantes
@@ -69,6 +65,9 @@ public abstract class Espaco implements Agendavel {
 
     public abstract String getTipo();
     
+
+
+    // método toString() para utilizar na persistencia de dados.
     @Override
     public String toString() {
         return this.id + ";" + this.nome + ";" + this.localizacao + ";" + this.capacidade;

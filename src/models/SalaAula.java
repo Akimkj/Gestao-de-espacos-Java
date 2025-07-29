@@ -1,36 +1,25 @@
 package models;
-import java.util.Date;
 
-//SubClasse que representa os espaços das salas de aula do âmbito acadêmico do sistema de gestão.
-public class SalaAula extends Espaco{
-    private boolean possuiProjetor;
+public class SalaAula extends Espaco { // Declaração da classe SalaAula que herda de Espaco
+    private boolean possuiProjetor; // Atributo privado para armazenar se a sala de aula possui projetor ou não
 
+    // Construtor da classe SalaAula
     public SalaAula(String nome, String localizacao, int capacidade, boolean possuiProjetor) {
-        super(0, nome, localizacao, capacidade);
-        this.possuiProjetor = possuiProjetor;
+        // Chama o construtor da superclasse (Espaco)
+        super(0, nome, localizacao, capacidade); 
+        this.possuiProjetor = possuiProjetor; // Inicializa o atributo possuiProjetor
     }
 
-
-
-    //COLOCAR O METODO VERIFICARDISPONIBILIDADE PARA SWING
-
-    //ALTERAR PARA INTERFACE GRAFICA
-     @Override
-    public boolean consultarDisponibilidade(Date data, String horaInicio, String horaFim){
-        System.out.println("Verificando disponibilidade em uma sala de aula " + super.getNome() + " no dia " + data);
-        return true;
-    }
-
+    // Sobrescreve o método exibirDetalhes() da superclasse Espaco
     @Override
-    public void exibirDetalhes() { 
-        super.exibirDetalhes();
-        System.out.println("Possui projetor? " + (getPossuiprojetor() ? "Sim" : "Não"));
+    public String exibirDetalhes() {
+        // Chama o método exibirDetalhes() da superclasse e concatena o tipo
+        return super.exibirDetalhes() + getTipo();
     }
+
+    // Getters e Setters importantes
 
     
-
-    //Getters e Setters importantes
-
     public boolean getPossuiprojetor() {
         return this.possuiProjetor;
     }
@@ -41,11 +30,13 @@ public class SalaAula extends Espaco{
 
     @Override
     public String getTipo() {
-        return "SALA DE AULA";
+        return "SALA DE AULA"; // Retorna o tipo específico "SALA DE AULA"
     }
 
+    // Sobrescreve o método getAtrib_esp() da superclasse Espaco
     @Override
     public String getAtrib_esp(){
+       // Retorna uma string indicando se a sala possui projetor (SIM/NAO)
        if (getPossuiprojetor()) {
         return "POSSUIPROJETOR=SIM";
        }
@@ -54,9 +45,10 @@ public class SalaAula extends Espaco{
        }
     }
 
-
+    // Sobrescreve o método toString() para fornecer uma representação em string do objeto SalaAula
     @Override
     public String toString() {
+        // Chama o método toString() da superclasse e concatena o tipo e os atributos específicos
         return super.toString() + ";" + getTipo() + ";" + getAtrib_esp();
     }
 }
