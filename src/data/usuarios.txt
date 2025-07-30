@@ -1,2 +1,3 @@
 0;mika;kaka@gmail.com;mimi;true
 1;akim;mi@;kaka;false
+4;Diogo;dogo@.com;12345;false

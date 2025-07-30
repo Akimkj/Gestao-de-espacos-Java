@@ -36,7 +36,7 @@ public class RelatoriosView extends JFrame {
         tituloLabel.setHorizontalAlignment(SwingConstants.CENTER); //coloca o título no meio
         tituloLabel.setForeground(new Color(0,102,255)); //define a cor do título
 
-        botaoCsv = new JButton("Relatórios CSV"); //botão para gerar csv 
+        botaoCsv = new JButton("Relatório Log"); //botão para gerar csv 
         estilizarBotao(botaoCsv, new Color(0, 87, 183)); // aparencia do botao de pegar o relatorio csv
         
         botaoVoltar = new JButton("Voltar");
@@ -93,7 +93,7 @@ public class RelatoriosView extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.registrarLog(usuario.getNome(), "Clicou em Relatórios CSV"); //registra que o botão foi clicado
-                salvarArquivo("relatorio.csv", "id,nome,data\n1,Relatório de Teste,2025-07-26\n"); //salva um arquivo com esses dados
+                salvarArquivo("relatorio log", "id,nome,data\n1,Relatório de Teste,2025-07-26\n"); //salva um arquivo com esses dados
             }
         });
     
@@ -148,7 +148,7 @@ public class RelatoriosView extends JFrame {
             try (FileWriter writer = new FileWriter(chooser.getSelectedFile())) {
                 writer.write(conteudo); //escreve o conteudo no arquivo escolhido
                 JOptionPane.showMessageDialog(this, "Arquivo salvo com sucesso!"); //mostra mensagem de sucesso
-                controller.registrarLog(usuario.getNome(), "Salvou arquivo CSV: " + chooser.getSelectedFile().getName());
+                controller.registrarLog(usuario.getNome(), "Salvo arquivo LOG: " + chooser.getSelectedFile().getName());
             } catch (IOException ex) {
                 JOptionPane.showMessageDialog(this, "Erro ao salvar: " + ex.getMessage()); //mostra erro se der problema
             }

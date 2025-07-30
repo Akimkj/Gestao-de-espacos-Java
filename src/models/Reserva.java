@@ -3,6 +3,7 @@ package models;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+// Classe que representa uma reserva de um espaço por um usuário
 public class Reserva {
     // Atributos da classe Reserva
     private int id; // Identificador único da reserva
@@ -22,14 +23,14 @@ public class Reserva {
         this.responsavel = responsavel;
     }
 
-    // Métodos getters e setters para acessar e modificar os atributos
+    // Getters e setters para acessar e modificar os atributos
 
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.id = id; // Permite definir um novo ID (usado pelo DAO ao salvar)
     }
 
     public Espaco getEspaco() {

@@ -37,10 +37,16 @@ public class UsuarioController {
         relatorioController.registrarLog(novoUsuario.getNome(), "cadastrou novo usuário");
     }
 
-    public boolean removerUsuarioPorEmail(String email) {
+    public boolean removerUsuarioPorEmail(String email, String nomeUsuarioLogado) {
         for (Usuario u : usuarioDao.listarTodos()) {
             if (u.getEmail().equalsIgnoreCase(email)) {
                 usuarioDao.remover(u.getId());
+
+                if ((nomeUsuarioLogado != null && !nomeUsuarioLogado.isEmpty())){
+                    relatorioController.registrarLog(nomeUsuarioLogado, "removeu usuário: " + u.getNome());
+                }else{
+                    relatorioController.registrarLog("ADM", "removeu usuário: " + u.getNome());
+                }
                 return true;
             }
         }
@@ -50,15 +56,6 @@ public class UsuarioController {
     public Usuario getUsuarioLogado() {
         return usuarioLogado;
     }
-
-
-
-
-
-
-
-
-
 
     public List<Usuario> listarUsuarios() {
         return usuarioDao.listarTodos();

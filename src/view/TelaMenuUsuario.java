@@ -37,9 +37,14 @@ public class TelaMenuUsuario extends JFrame {
         painel.add(btnReservar);
 
         JButton btnRelatorio = new JButton("Relatorios Gerais");
-        btnRelatorio.setBounds(30, 140, 240, 40);
+        btnRelatorio.setBounds(30, 120, 240, 40);
         btnRelatorio.setBackground(Color.WHITE);
         painel.add(btnRelatorio);
+
+        JButton btnEspaçosDisponíveis = new JButton("Espaços Disponíveis");
+        btnEspaçosDisponíveis.setBounds(30, 160, 240, 40);
+        painel.add(btnEspaçosDisponíveis);
+
 
         JButton btnSair = new JButton("Sair");
         btnSair.setBounds(30, 200, 240, 30);
@@ -61,6 +66,10 @@ public class TelaMenuUsuario extends JFrame {
         btnSair.addActionListener(e -> {
             new LoginView().setVisible(true);
             dispose();
+        });
+
+        btnEspaçosDisponíveis.addActionListener(e ->{
+            new EspacosDisponiveisView().setVisible(true);
         });
     }
 

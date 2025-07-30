@@ -4,3 +4,4 @@
 5;pqwe;ppwe;30;LABORATORIO;TIPOEQUIPAMENTO=csds
 6;oerer;ccet;30;LABORATORIO;TIPOEQUIPAMENTO=comenta
 7;arquiteturaDeComputadores;CCET;40;LABORATORIO;TIPOEQUIPAMENTO=PC
+8;Fundamentos1;nucleo de esportes;40;QUADRA;TIPOESPORTE=basquete

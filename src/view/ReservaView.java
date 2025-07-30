@@ -27,7 +27,7 @@ public class ReservaView extends JFrame {
     public ReservaView(Usuario usuario) {
         setTitle("Reserva"); // Título da janela
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // Comportamento ao fechar
-        setSize(600, 400); // Tamanho da janela
+        setSize(600, 500); // Tamanho da janela
         setLocationRelativeTo(null); // Centraliza na tela
         setLayout(new BorderLayout()); // Layout principal
         this.usuarioLogado = usuario; // Guarda usuário logado

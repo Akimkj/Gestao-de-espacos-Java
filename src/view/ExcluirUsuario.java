@@ -8,6 +8,7 @@ public class ExcluirUsuario extends JFrame {
     private JTextField campoEmail;
     private UsuarioController controller;
     private Usuario usuarioLogado;
+    private String usuarioremovido;
 
     public ExcluirUsuario(Usuario usuario) {
         controller = new UsuarioController();
@@ -49,7 +50,7 @@ public class ExcluirUsuario extends JFrame {
 
         botaoExcluir.addActionListener(e -> {
             String email = campoEmail.getText();
-            boolean removido = controller.removerUsuarioPorEmail(email);
+            boolean removido = controller.removerUsuarioPorEmail(email,usuarioremovido);
 
             if (removido) {
                 JOptionPane.showMessageDialog(this, "Usuário removido com sucesso.");
