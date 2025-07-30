@@ -34,7 +34,7 @@ public class Log {
     //método que retorna uma representação em texto do log, formatando a data e hora, seguida do usuário e da descrição da ação.
     @Override
     public String toString() {
-        SimpleDateFormat formatoDataHora  = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        return "[" + formatoDataHora.format(dataHora) + "] " + usuario + ": " + acao;
+        SimpleDateFormat formatoDataHora = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss.SSS");
+        return "[" + formatoDataHora.format(dataHora) + "] Usuario: " + usuario + " | Acao: " + acao;
     }
 }
