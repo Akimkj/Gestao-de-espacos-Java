@@ -5,7 +5,7 @@ import  java.util.List;
 import models.Usuario;
 
 public class UsuarioDao {
-    private final String ARQUIVO = "src\\data\\usuarios.txt";
+    private final String ARQUIVO = "Gestao-de-espacos-java\\src\\data\\usuarios.txt";
 
 
     //Lista os usuarios do arquivo;
