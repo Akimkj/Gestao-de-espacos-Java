@@ -80,16 +80,16 @@ public class RelatoriosView extends JFrame {
         }
 
         add(painelBotoes, BorderLayout.CENTER); //adiciona os botões ao centro da janela
-        JPanel painelRodape = new JPanel();
-        painelRodape.setBackground(new Color(193, 219, 253));
-        painelRodape.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 10));
-        painelRodape.add(botaoVoltar);
-        add(painelRodape, BorderLayout.SOUTH);
+        JPanel painelRodape = new JPanel(); // cria um painel para o rodapé
+        painelRodape.setBackground(new Color(193, 219, 253)); // define a cor de fundo do rodapé
+        painelRodape.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 10));// define a borda interna do rodapé com espaçamento
+        painelRodape.add(botaoVoltar);  // adiciona o botão voltar ao painel do rodapé
+        add(painelRodape, BorderLayout.SOUTH); // adiciona o painel do rodapé na parte inferior da janela
     }
 
     //método que diz o que acontece quando o usuário clica nos botões
     private void configurarBotoes() {
-        botaoCsv.addActionListener(new ActionListener() {
+        botaoCsv.addActionListener(new ActionListener() { //adiciona ação para o clique do botão csv
             @Override
             public void actionPerformed(ActionEvent e) {
                 controller.registrarLog(usuario.getNome(), "Clicou em Relatórios CSV"); //registra que o botão foi clicado
@@ -97,22 +97,22 @@ public class RelatoriosView extends JFrame {
             }
         });
     
-        botaoVoltar.addActionListener(new ActionListener() {
+        botaoVoltar.addActionListener(new ActionListener() { //adiciona ação para o clique do botão voltar
             @Override 
             public void actionPerformed(ActionEvent e){
-                controller.registrarLog(usuario.getNome(), "Clicou em Voltar");
-                if (usuario.isAdmin()){
-                    new TelaMenuAdmin(usuario).setVisible(true);
+                controller.registrarLog(usuario.getNome(), "Clicou em Voltar");  //registra no log que o botão voltar foi clicado
+                if (usuario.isAdmin()){ 
+                    new TelaMenuAdmin(usuario).setVisible(true); //abre a tela do menu do administrador
                 }else{
-                    new TelaMenuUsuario(usuario).setVisible(true);
+                    new TelaMenuUsuario(usuario).setVisible(true); //abre a tela do menu do usuário comum
                 }
-                dispose();// fecha a tela atual
+                dispose();//fecha a tela atual
             }
         });
 
 
-        if (usuario.isAdmin()){
-            botaoLog.addActionListener(new ActionListener() {
+        if (usuario.isAdmin()){ //verifica se o usuário é administrador
+            botaoLog.addActionListener(new ActionListener() { //adiciona ação para o clique do botão log
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     controller.registrarLog(usuario.getNome(), "Clicou em Histórico do Log"); //registra o clique no botão log se o usario for adm
@@ -120,7 +120,7 @@ public class RelatoriosView extends JFrame {
                 }
             });
 
-            botaoPersistencia.addActionListener(new ActionListener() {
+            botaoPersistencia.addActionListener(new ActionListener() { //adiciona ação para o clique do botão persistência (backup zip)
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     controller.registrarLog(usuario.getNome(), "Clicou em Backup ZIP"); //registra o clique no botão zip se o usario for adm
