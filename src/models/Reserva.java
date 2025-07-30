@@ -4,14 +4,15 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Reserva {
-    private int id;
-    private Espaco espaco;
-    private Date data;
-    private String horaInicio;
-    private String horaFim;
-    private Usuario responsavel; //nome ou identificador de quem fez a reserva
+    // Atributos da classe Reserva
+    private int id; // Identificador único da reserva
+    private Espaco espaco; // Objeto do tipo Espaco reservado
+    private Date data; // Data da reserva
+    private String horaInicio; // Hora de início da reserva
+    private String horaFim; // Hora de término da reserva
+    private Usuario responsavel; // Usuário responsável pela reserva
 
-    // Construtor
+    // Construtor com todos os atributos
     public Reserva(int id, Espaco espaco, Date data, String horaInicio, String horaFim, Usuario responsavel) {
         this.id = id;
         this.espaco = espaco;
@@ -21,7 +22,8 @@ public class Reserva {
         this.responsavel = responsavel;
     }
 
-    // Getters e Setters
+    // Métodos getters e setters para acessar e modificar os atributos
+
     public int getId() {
         return id;
     }
@@ -70,25 +72,25 @@ public class Reserva {
         this.responsavel = responsavel;
     }
 
-    //método toCSV para exportar uma linha CSV da reserva
+    // Método que gera uma string com os dados da reserva no formato CSV
     public String toCSV() {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy"); // Formatação da data
         return id + ";" 
-             + (espaco != null ? espaco.getNome() : "") + ";" 
-             + responsavel + ";" 
-             + sdf.format(data) + ";" 
+             + (espaco != null ? espaco.getNome() : "") + ";"  // Nome do espaço
+             + responsavel + ";"  // Aqui será impresso o toString() do objeto Usuario
+             + sdf.format(data) + ";"  // Data formatada
              + horaInicio + ";" 
              + horaFim + ";" 
-             + "Confirmada"; // ou outro status dinâmico, se tiver
+             + "Confirmada"; // Status fixo da reserva
     }
 
-    // Método para exibir os detalhes da reserva
+    // Método que exibe os detalhes da reserva no console (útil para depuração)
     public void exibirDetalhesReserva() {
         System.out.println("Reserva ID: " + id);
-        System.out.println("Espaço reservado: " + espaco.getNome());
-        System.out.println("Localização: " + espaco.getLocalizacao());
-        System.out.println("Data: " + data);
+        System.out.println("Espaço reservado: " + espaco.getNome()); // Nome do espaço
+        System.out.println("Localização: " + espaco.getLocalizacao()); // Localização do espaço
+        System.out.println("Data: " + data); // Será exibido no formato padrão de Date
         System.out.println("Horário: " + horaInicio + " até " + horaFim);
-        System.out.println("Responsável: " + responsavel);
+        System.out.println("Responsável: " + responsavel); // Exibe toString() do objeto Usuario
     }
 }

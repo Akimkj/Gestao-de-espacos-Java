@@ -9,7 +9,6 @@ import models.*;
 
 /*Classe da janela da interface gráfica para o administrador poder cadastrar um espaço.*/
 public class CadastroEspacoView extends JFrame {
-    private Usuario usuarioLogado;
     private final EspacoController espacoController = new EspacoController(); // instancia do controller para salvar os dados do cadastro do espaço.
 
     private final JComboBox<String> tipoCombo; // caixa com os tipos de espaco
@@ -22,7 +21,6 @@ public class CadastroEspacoView extends JFrame {
 
     //Método construtor onde inicializa a visualização da janela
     public CadastroEspacoView(Usuario usuarioLogado) {
-        this.usuarioLogado = usuarioLogado;
         setTitle("AMBIENTA - Cadastro de Espaço"); // titulo da janela
         setDefaultCloseOperation(EXIT_ON_CLOSE); // operacao de fechar a janela 
         setSize(750, 450); // tamanho da janela

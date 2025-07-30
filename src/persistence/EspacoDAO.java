@@ -6,7 +6,7 @@ import models.*;
 
 public class EspacoDAO {
 
-    private final String caminhoArquivo = "src\\data\\espacos.txt";
+    private final String caminhoArquivo = "Gestao-de-espacos-java-\\src\\data\\espacos.txt";
 
     public List<Espaco> listar() {
         List<Espaco> espacos = new ArrayList<>();
@@ -17,7 +17,6 @@ public class EspacoDAO {
                 if (dados.length < 5) {
                     continue;
                 } 
-                int id = Integer.parseInt(dados[0]);
                 String nome = dados[1];
                 String localizacao = dados[2];
                 int capacidade = Integer.parseInt(dados[3]);
