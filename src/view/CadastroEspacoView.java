@@ -1,5 +1,6 @@
 package view;
 import controller.EspacoController;
+import controller.RelatorioController;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -95,6 +96,7 @@ public class CadastroEspacoView extends JFrame {
         botaoVoltar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                espacoController.registrarLog(usuarioLogado.getNome(), "Clicou em Voltar no Cadastro de Espaço");
                 new TelaMenuAdmin(usuarioLogado).setVisible(true); // volta para o menu de adm 
                 dispose(); // Fecha a tela de login, opcional
             }
@@ -224,7 +226,8 @@ public class CadastroEspacoView extends JFrame {
                 return;
         }
 
-        espacoController.cadastrarEspaco(novoEspaco);
+        espacoController.cadastrarEspaco(novoEspaco,usuarioLogado);
+        espacoController.registrarLog(usuarioLogado.getNome(), "Cadastrou novo espaço: " + tipo + " - " + nome);
         JOptionPane.showMessageDialog(this,
             "Cadastro realizado:\n" +
             "Tipo: " + tipo + "\nNome: " + nome + "\nLocalização: " + localizacao +

@@ -1,4 +1,69 @@
-[28/07/2025 16:52:15] Usuário: [2025-07-28 16:52:15] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Relatórios CSV
-[28/07/2025 16:52:20] Usuário: [2025-07-28 16:52:20] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
-[28/07/2025 16:52:25] Usuário: [2025-07-28 16:52:25] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Histórico do Log
-[28/07/2025 17:56:28] Usuário: [2025-07-28 17:56:28] IP: 192.168.0.101 | Usuário: Usuário | Ação: Clicou em Backup ZIP
+[28/07/2025 16:52:15] Usuï¿½rio: [2025-07-28 16:52:15] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Relatï¿½rios CSV
+[28/07/2025 16:52:20] Usuï¿½rio: [2025-07-28 16:52:20] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Histï¿½rico do Log
+[28/07/2025 16:52:25] Usuï¿½rio: [2025-07-28 16:52:25] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Histï¿½rico do Log
+[28/07/2025 17:56:28] Usuï¿½rio: [2025-07-28 17:56:28] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Backup ZIP
+[29/07/2025 21:18:46] mika: [2025-07-29 21:18:46] IP: 192.168.0.101 | Usuï¿½rio: mika | Aï¿½ï¿½o: realizou login com sucesso
+[29/07/2025 21:19:10] Usuï¿½rio: [2025-07-29 21:19:10] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:33:30] mika: [2025-07-29 21:33:30] IP: 192.168.0.101 | Usuï¿½rio: mika | Aï¿½ï¿½o: realizou login com sucesso
+[29/07/2025 21:33:36] Usuï¿½rio: [2025-07-29 21:33:36] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:33:41] Usuï¿½rio: [2025-07-29 21:33:41] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Backup ZIP
+[29/07/2025 21:45:08] mika: realizou login com sucesso
+[29/07/2025 21:45:11] Usuï¿½rio: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:45:13] Usuï¿½rio: Clicou em Histï¿½rico do Log
+[29/07/2025 21:49:45] mika: [2025-07-29 21:49:45] IP: 192.168.0.101 | Usuï¿½rio: mika | Aï¿½ï¿½o: realizou login com sucesso
+[29/07/2025 21:49:50] Usuï¿½rio: [2025-07-29 21:49:50] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:49:52] Usuï¿½rio: [2025-07-29 21:49:52] IP: 192.168.0.101 | Usuï¿½rio: Usuï¿½rio | Aï¿½ï¿½o: Clicou em Histï¿½rico do Log
+[29/07/2025 21:55:38] Usuï¿½rio: mika: realizou login com sucesso
+[29/07/2025 21:55:42] Usuï¿½rio: Usuï¿½rio: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:57:49] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 21:57:52] Usuario: Usuï¿½rio | Acao: Clicou em Relatï¿½rios CSV
+[29/07/2025 21:57:54] Usuario: Usuï¿½rio | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 22:05:09] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:05:13] Usuario: mika | Acao: Clicou em Relatï¿½rios CSV
+[29/07/2025 22:05:16] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:05:26] Usuario: mika | Acao: Clicou em Backup ZIP
+[29/07/2025 22:08:29] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:08:33] Usuario: mika | Acao: Clicou em Backup ZIP
+[29/07/2025 22:08:36] Usuario: mika | Acao: Salvou arquivo ZIP: bancos_dados.zip
+[29/07/2025 22:08:37] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:28:30] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:28:33] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 22:28:36] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 22:28:36] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:29:12] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:31:45] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:31:57] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:31:57] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 22:32:00] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 22:32:01] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:35:11.738] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:35:14.464] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:35:15.568] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 22:35:18.309] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 22:35:18.688] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:38:22.251] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:38:23.855] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:38:24.671] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:42:29.862] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:42:31.332] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:42:32.221] Usuario: mika | Acao: Clicou em Relatï¿½rios CSV
+[29/07/2025 22:42:34.649] Usuario: mika | Acao: Salvou arquivo CSV: relatorio.csv
+[29/07/2025 22:42:35.141] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:45:07.508] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:45:09.108] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:45:10.228] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 22:47:11.347] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 22:47:16.867] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 22:47:17.163] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 22:47:30.467] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 22:47:32.850] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 23:03:09.623] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 23:03:12.132] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 23:03:13.012] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 23:03:16.108] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 23:03:16.555] Usuario: mika | Acao: Clicou em Voltar
+[29/07/2025 23:05:20.491] Usuario: mika | Acao: realizou login com sucesso
+[29/07/2025 23:05:21.996] Usuario: mika | Acao: Saiu do sistema
+[29/07/2025 23:05:22.707] Usuario: mika | Acao: Clicou em Histï¿½rico do Log
+[29/07/2025 23:05:24.691] Usuario: mika | Acao: Salvou cï¿½pia do log: log_sistema.txt
+[29/07/2025 23:05:25.162] Usuario: mika | Acao: Clicou em Voltar
