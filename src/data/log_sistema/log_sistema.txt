@@ -81,3 +81,6 @@
 [30/07/2025 14:52:47.317] Usuario: mika | Acao: Clicou em Histórico do Log
 [30/07/2025 14:52:55.735] Usuario: mika | Acao: Salvou cópia do log: log_sistema.txt
 [30/07/2025 14:53:11.578] Usuario: mika | Acao: Clicou em Voltar
+[30/07/2025 16:03:31.901] Usuario: mika | Acao: realizou login com sucesso
+[30/07/2025 16:03:35.554] Usuario: mika | Acao: Clicou em Voltar no Cadastro de Espa�o
+[30/07/2025 16:03:37.057] Usuario: mika | Acao: Clicou em Voltar
