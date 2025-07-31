@@ -93,32 +93,12 @@ public class Log {
 
 ## Exemplo de Interação com o Sistema
 
-```plaintext
-===== Sistema de Gestão de Espaços =====
-Usuário: admin
-Senha: ******
+<img width="431" height="240" alt="image" src="https://github.com/user-attachments/assets/b9030280-69bb-4faa-9d72-e804185b2d1c" />
 
-Login realizado com sucesso!
+<br>
 
------ Menu Principal -----
-1 - Cadastrar Espaço
-2 - Listar Espaços
-3 - Editar Espaço
-4 - Remover Espaço
-5 - Relatórios (Logs)
-0 - Sair
+<img width="323" height="462" alt="image" src="https://github.com/user-attachments/assets/ec459b0e-dfde-4572-81c9-3c752548fc8a" />
 
-Opção: 1
-
---- Cadastro de Espaço ---
-Nome: Sala de Reuniões
-Capacidade: 20
-Descrição: Sala com projetor e ar-condicionado.
-
-Espaço cadastrado com sucesso!
-
-[LOG] 2025-07-31 21:45 | admin | Cadastrou espaço: Sala de Reuniões (Capacidade: 20)
-```
 
 ---
 
