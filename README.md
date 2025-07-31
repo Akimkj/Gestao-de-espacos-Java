@@ -24,8 +24,8 @@ cd Gestao-de-espacos-Java
    - A partir de uma IDE: importe o projeto como projeto Java.
    - Ou pelo terminal:
 ```bash
-javac Main.java
-java Main
+javac App.java
+java App
 ```
 
 > As classes estão organizadas nas pastas `models`, `controller`, `persistence` e `view`.
@@ -34,12 +34,12 @@ java Main
 
 ## Estrutura do Código
 
-- `Main.java`: Ponto de entrada do programa.
+- `App.java`: Ponto de entrada do programa.
 - `models/`: Contém as classes de domínio (`Espaco`, `Usuario`, `Log`, etc.).
 - `controller/`: Controladores que lidam com a lógica de negócio (`EspacoController`, `UsuarioController`, `RelatorioController`).
 - `persistence/`: Camada de persistência que realiza leitura e escrita dos dados (`EspacoDAO`, `UsuarioDAO`, `LogDAO`).
 - `view/`: Contém as classes responsáveis pela interface textual com o usuário (`MenuPrincipal`, `EspacoView`, `RelatoriosView`, etc.).
-- `data/`: (caso exista) onde são salvos os arquivos `.txt` com os dados persistidos.
+- `data/`: onde são salvos os arquivos `.txt` com os dados persistidos.
 
 ---
 
